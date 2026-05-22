@@ -78,7 +78,7 @@ Pass `--focus "<text>"` to steer the consolidation toward a specific area. The f
 
 1. **Prioritizes** clusters that match the focus theme.
 2. **De-prioritizes** clusters outside the theme (still listed, but lower in the output).
-3. **Does NOT exclude** other clusters entirely — Aaron's "focus on coding-style preferences; ignore one-off debugging notes" example is a soft hint, not a hard filter.
+3. **Does NOT exclude** other clusters entirely — a focus like "focus on coding-style preferences; ignore one-off debugging notes" is a soft hint, not a hard filter.
 
 Max focus text length: 4,096 characters (enough for a paragraph of nuance, not a full essay).
 
