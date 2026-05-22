@@ -1,6 +1,6 @@
 # Code of Conduct — Exo
 
-Contact for reports: [contact email — Aaron to provide before publish]
+Contact for reports: aaronroe@gmail.com
 
 ---
 
