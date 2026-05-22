@@ -129,7 +129,7 @@ Read `~/Exo/.exo/settings.json` and present current values. Common settings:
 | Setting | Description |
 |---|---|
 | `voice_profile` | A few sentences describing how Exo should write in your voice |
-| `signoff` | What to append to email drafts (e.g., "~af", "Cheers, Aaron") |
+| `signoff` | What to append to email drafts (e.g., "~ab" for initials, "Cheers, [Name]", or a multi-line block) |
 | `primary_email` | Main email domain for the email triage skill's "never auto-archive" rule |
 | `sync_target` | Where `~/Exo/` lives — `local` (default), `icloud`, or `<custom-path>` |
 | `power_surfaces` | Opt-in advanced surfaces: manual TIL prompt, manual dream review, naming-convention enforcement |
