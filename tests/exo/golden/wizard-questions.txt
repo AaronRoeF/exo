@@ -1,0 +1,13 @@
+1. Name (first name)
+2. Work email
+3. Data directory (default: ~/Exo)
+4. Role (one line)
+5. Company context (one line, optional)
+6. Top 2-3 people you talk to most
+7. Top 2-3 accounts you're working with
+8. Top 1-3 priorities this quarter
+9. Auto-capture corrections + preferences? (default: yes)
+10. Weekly consolidation day/time (default: Monday 6am)
+11. Show daily briefing on session start? (default: yes)
+12. Connect calendar? (yes/skip)
+13. Connect email? (yes/skip)
