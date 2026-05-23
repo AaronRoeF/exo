@@ -72,7 +72,7 @@ Has ~/Exo/.exo/setup-complete file?
 
 Triggered when `~/Exo/.exo/setup-complete` does not exist.
 
-The full wizard body is documented in `docs/wizard.md`. The wizard:
+The full executable wizard body is in the sibling `skills/exo/wizard.md` skill (loaded automatically when the meta-skill routes here). The user-facing reference (rendered WIFM/HOW + closing screen) lives at `docs/wizard.md`. The wizard:
 - **6 steps** (Welcome, Identity, Priorities, People, Connections, Personality)
 - **13 questions** total
 - **Optimistic progress bar** ("Step 2 of 6...")
@@ -199,6 +199,6 @@ All route to the wizard if no state exists.
 
 ## Integration
 
-- **Setup wizard body** (full 13-question / 6-step flow) is in `docs/wizard.md` and the full Sub-plan 6 deliverable. This skill stubs the router that LOADS the wizard at first run.
+- **Setup wizard body** (full 13-question / 6-step flow) is in `skills/exo/wizard.md` (Sub-plan 6 deliverable, shipped). This meta-skill is the router that LOADS that wizard on first run.
 - **All other Exo skills** are reachable via the actions menu or direct invocation.
 - **`exo-mcp` MCP server** (Sub-plan 5) provides the equivalent surface for Claude Desktop users — its tools mirror these skills.
