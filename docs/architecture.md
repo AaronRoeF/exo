@@ -1,153 +1,107 @@
-# Architecture
+# Exo Architecture — one-page picture
 
-> **WIFM:** You can understand Exo in one diagram and three sentences.
+**What this is for you:** A single picture that shows how Exo's pieces fit together — and where the actual magic lives — so you can decide if the architecture matches how you work before you install anything. Read the diagram, read the "why the KB is the magic" note, decide.
 
-Exo runs in two surfaces (Claude Code and Claude Desktop), shares one local data layer (`~/Exo/`), and does its real work in three loops: capture, consolidate, promote. Everything else is wiring around those three things.
+ASCII rendered version below — designed to read cleanly at a glance, with no rendering dependency. (Mermaid source archived at `architecture-diagram-mermaid.md` if you ever want to regenerate an image; PNG is no longer load-bearing for the marketplace listing.)
 
 ---
 
-## The dual-shipping diagram
-
 ```
-        +----------------------+    +----------------------+
-        |    Claude Code       |    |   Claude Desktop     |
-        | skills, slash cmds,  |    |   exo-mcp server     |
-        | hooks, personality   |    |   (8 MCP tools)      |
-        +----------+-----------+    +-----------+----------+
-                   |                            |
-                   +-------------+--------------+
+                           +-----------+
+                           |    YOU    |
+                           +-----+-----+
                                  |
-                                 | read + write
+              daily work         |         occasional use
+          +----------------------+---------------------+
+          |                                            |
+          v                                            v
+   +--------------------+                    +--------------------+
+   |    Claude Code     |                    |   Claude Desktop   |
+   |  (full experience) |                    |     (lite mode)    |
+   +---------+----------+                    +----------+---------+
+             |                                          |
+             | 13 skills · 5 slash cmds · 4 hooks       | exo-mcp server
+             |                                          | (8 MCP tools)
+             +---------------------+--------------------+
+                                   | read + write
+                                   v
+   +-------------------------------------------------------------------+
+   |        ***  ~/Exo/  --  THIS IS THE MAGIC  ***                    |
+   |                                                                   |
+   |   plain text · markdown · on your machine · never leaves          |
+   |   maintains state + context · outlives every tool that reads it   |
+   |                                                                   |
+   |   projects/<name>/pulse.md                                        |
+   |   people/<name>.md                                                |
+   |   accounts/<company>.md                                           |
+   |   decisions/<date>-<topic>.md                                     |
+   |   intel/<date>-<source>-<topic>.md                                |
+   |   observations/<date>.md                                          |
+   +---------------------------+---------------------------------------+
+                               |
+                       observations accumulate
+                       as a side effect of work
+                               |
+                               v
+                  +-----------------------------+
+                  |     DREAM  (weekly)         |
+                  |                             |
+                  |  5 sources                  |
+                  |    -> echo-chamber filter   |
+                  |    -> cross-day patterns    |
+                  |    -> cap + watch-list      |
+                  |    -> graduation candidates |
+                  +--------------+--------------+
+                                 |
+                       you approve what survives
+                                 |
                                  v
-                    +-------------------------+
-                    |         ~/Exo/          |
-                    |  your local data layer  |     never leaves
-                    |                         | <-- your machine
-                    |  observations/          |     (markdown files
-                    |  people/   accounts/    |      you can read in
-                    |  decisions/   intel/    |      any editor)
-                    |  projects/<n>/pulse.md  |
-                    |                         |
-                    |  CLAUDE.md   MEMORY.md  |
-                    |  personality/  skills/  |
-                    +-------------+-----------+
-                                  |
-                                  | read at every
-                                  | session start
-                                  v
-                       (rules + context reload
-                        into the next session)
+                  +-----------------------------+
+                  |    rules layer updates      |
+                  |                             |
+                  |  CLAUDE.md  ·  MEMORY.md    |
+                  |  skills/*.md                |
+                  +--------------+--------------+
+                                 |
+                       read at next session start;
+                       the next session is smarter
+                       than the last
+                                 |
+                                 +-----> loop closes; back to Code
 ```
 
-The data layer is the source of truth. Surfaces are interchangeable —
-lose either Claude Code or Claude Desktop access, you still have your
-Exo state in `~/Exo/`. Three loops (described below) do the real work
-on top of this substrate.
+---
+
+## Why the `~/Exo/` Knowledge Base is the magic (not the surfaces)
+
+Look at the diagram again. Both surfaces (Claude Code, Claude Desktop) and all the tools (Skills, Commands, Hooks, MCP) exist in service of one thing: writing to and reading from `~/Exo/`. The KB is the hub. Everything else is a spoke.
+
+This is deliberate. The surfaces will change — Anthropic will ship new tools, plugins, modes; the MCP server will get rewritten; the skill bodies will evolve. But your `~/Exo/` is plain markdown. It outlives every tool that reads it. It's the only part of Exo that is unambiguously yours.
+
+Two reasons this matters:
+
+**One — it's where the mental model lives.** KM systems (wikis, Notion, every SaaS knowledge tool) are really information storage and retrieval. They hold text; they don't hold a model of *you*. Your `~/Exo/` is different — it accumulates a working model of your projects, your people, your decisions, your patterns. Every skill reads it before acting. Every meeting wrap updates it. Every weekly dream consolidates it. The KB isn't a database for tools; it's the instantiated mental model that the tools augment.
+
+**Two — it's portable across surfaces and decades.** Today you use Claude Code; tomorrow you use Claude Desktop; next year you use something Anthropic hasn't shipped yet. As long as it can read markdown, it can read your Exo. Try saying that about any SaaS KB you've used in the last decade.
 
 ---
 
-## The data layer (`~/Exo/`)
+## Legend
 
-Plain markdown plus a few JSON files. No SQLite, no proprietary format, no daemon. You can read everything with `cat` and edit everything with any text editor.
+- **YOU** — the operator-builder. You drive both surfaces; Exo accumulates the model.
+- **Surfaces** — where you interact with Exo. **Claude Code** is the full experience (13 skills + 5 slash commands + 4 hooks, all running locally). **Claude Desktop** is lite mode via the `exo-mcp` MCP server (8 tools mirroring the most-used skills, for users who don't live in Claude Code).
+- **Tools (skills, slash commands, hooks, MCP)** — the functional layer; what fires when you type a trigger phrase or when a hook event fires. All of them read/write `~/Exo/`.
+- **The Knowledge Base (`~/Exo/`)** — your local data layer. Plain markdown. Never leaves your machine. The star marks this as the load-bearing piece. Lose any tool above it, you still have the Knowledge Base. Lose the Knowledge Base, the tools have nothing to operate on.
+- **DREAM loop** — weekly consolidation. The dream pass reads accumulated observations through five filters, proposes graduation candidates, you approve, the rules flow back into Claude Code as updates to your CLAUDE.md / skill files / MEMORY.md for the next session.
 
-| Directory | What's in it | Owned by |
-|---|---|---|
-| `people/<firstname-lastname>.md` | One file per key contact. Frontmatter + Context bullets + Interactions log. | Capture (auto-append), wrap/prep (structured update). |
-| `accounts/<company-name>.md` | One file per active account or prospect. Frontmatter + Why-This-Company + Key People + Timeline. | Capture + account-related skills. |
-| `decisions/YYYY-MM-DD-<topic>.md` | One file per significant decision (RFD or ADR style). | You (manual create), Exo (suggested create). |
-| `intel/YYYY-MM-DD-<source>-<topic>.md` | Captured signals from competitive research, market reads, customer calls. | Capture skills. |
-| `observations/YYYY-MM-DD.md` | The raw capture stream. One file per day. Bullet per observation. | Capture hooks + the user (TIL command). |
-| `projects/<project>/pulse.md` | One project tracker per active project. Frontmatter + status + next actions + last stop. | You (manual update), Exo (auto-bump fields). |
-| `personality/exo-personality.md` | The shipped Exo personality. Swap or fork freely. | You (only edit through RFC if you're contributing back). |
-
-Everything is version-control-friendly. Most users put `~/Exo/` under git (or iCloud + a sidecar git directory) and treat it like a personal monorepo.
+That last loop — the one returning to the top of the diagram — is what makes "week 3 better than week 1." Captures pile up, dream consolidates, your rules layer gets sharper each cycle, the next session is smarter than the last.
 
 ---
 
-## Loop 1 — Capture
+## What this picture is NOT showing
 
-> Signal lands as a side effect of working. You don't structure it in the moment.
-
-Triggers:
-
-- **SessionStart hook** — renders the active-project dashboard, asks you to declare focus, and seeds the day's observation file.
-- **PreToolUse / PostToolUse hooks** — append targeted signals (file edits across project boundaries, MCP calls worth logging).
-- **User-initiated TIL** — typing `TIL: <thing>` in any session appends to today's observation file immediately.
-- **End-of-day prompt** — when you signal you're wrapping (`EOD`, `done for today`, `signing off`), Exo proposes 2–5 TIL candidates from the session.
-
-All captures land in two places: `observations/YYYY-MM-DD.md` (raw stream) and the relevant typed file (people, account, project) if the signal mentions one.
-
----
-
-## Loop 2 — Consolidate (the dream pass)
-
-> Acknowledgment: cross-session memory consolidation is a small but real wave right now. Anthropic shipped Dreaming for Managed Agents in early May 2026; OpenClaw Dreaming and `claude-memory-compiler` ship adjacent patterns. Exo's contribution is the discipline around the loop, not the loop itself.
-
-Triggers:
-
-- Manual: `/dream`.
-- Scheduled (optional): a background launchd job nightly.
-
-What the dream pass does:
-
-1. **Read the five-source corpus.** Today's observations, auto-memory snapshots, all active PULSEs, the REVIEW-LOG ledger, and the skill-gotchas registry.
-2. **Apply the echo-chamber guard.** Filter out anything that originated as a user-authored rule (CLAUDE.md entries, prior corrections, locked memories). Without this filter, the consolidator mostly rediscovers what you already told it.
-3. **Detect patterns.** Cross-source, cross-day. A signal that appears N times in M days, across at least two source types, qualifies as a candidate.
-4. **Generate proposals.** Each candidate becomes a proposed change with a diff (where it would land, what it would say).
-5. **Apply the cap + watch list.** Cap proposals per dream pass to prevent flooding. Anything over the cap goes onto a watch list with an age counter that survives across runs.
-6. **Write the dream report.** A single markdown file you can read in five minutes. Approve, defer, or reject per proposal.
-
----
-
-## Loop 3 — Promote
-
-> Proposals become rules only with your approval. Defaults bias toward conservative.
-
-Approved proposals land as edits to the right file:
-
-- A new behavioral rule → into the matching skill file's gate or the matching `CLAUDE.md`.
-- A new gotcha → into `skill-gotchas.md`.
-- A people/account update → into the typed file.
-- A new decision → into `decisions/`.
-
-Every promotion gets a row in `REVIEW-LOG.md` (timestamp, what graduated, what file). This is the audit trail and the dedup source for future dream passes.
-
-**Demote, don't delete.** When a rule stops being useful, Exo proposes demotion — moving it to an archived section, not removing it. The history of how Exo got smarter stays inspectable.
-
----
-
-## Hooks
-
-| Hook | Fires on | Job |
-|---|---|---|
-| `session-start` | New Claude Code session | Render dashboard, seed today's observation file, clear focus lock. |
-| `focus-gate` | PreToolUse on Edit/Write | If you're editing outside your declared focus project, inject a context-switch warning. |
-| `til-flow` | User types `TIL:` | Append immediately to today's observation file. |
-| `stop-dream` | End of a dream pass | Compact the dream report, update REVIEW-LOG, age the watch list. |
-
-Hooks live in `~/.claude/hooks/exo-*.sh`. Each is small (≤100 lines), inspectable, and safe to disable individually.
-
----
-
-## MCP integration
-
-Exo treats MCP servers as the integration surface for everything outside the local data layer. The shipped wizard offers OAuth setup for the common ones (Google Calendar, Gmail, Notion). Adding a new MCP:
-
-1. Install the MCP server (npm, pip, or binary).
-2. Add it to `~/.claude.json` under `mcpServers`.
-3. Restart Claude Code.
-4. Add a one-line capture rule in the relevant skill file telling Exo when to read from it.
-
-See `docs/customization.md` for examples.
-
----
-
-## Why this shape
-
-Three design decisions drove the architecture:
-
-1. **Local-first, always.** The data layer is on your machine. There is no Exo cloud, no Exo account, no telemetry. If Exo as a project goes away tomorrow, your `~/Exo/` directory keeps working with any text editor.
-
-2. **Plain markdown, plain git.** Every Exo artifact is human-readable and human-editable. The system has to remain inspectable. If you ever need to know why Exo did something, the answer is in a file you can open.
-
-3. **Hooks over prompts.** Behavioral rules embedded in prompts degrade after compaction. Hooks fire mechanically. Anything that has to survive a long session goes in a hook, not in `CLAUDE.md`.
+- Individual skill bodies — see [docs/customization.md](https://github.com/AaronRoeF/exo/blob/main/docs/customization.md) for swap/extend patterns
+- The setup wizard flow — see [docs/wizard.md](https://github.com/AaronRoeF/exo/blob/main/docs/wizard.md) for the 13 questions
+- Hook wiring into `~/.claude/settings.json` — handled automatically by `install.sh`
+- Security/privacy posture — see [docs/security.md](https://github.com/AaronRoeF/exo/blob/main/docs/security.md) for the local-first guarantees
+- Obsidian integration — `~/Exo/` IS an Obsidian vault by default; see the blog post's Obsidian section for the deliberately-minimal plugin build Aaron runs

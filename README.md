@@ -1,5 +1,7 @@
 # Exo
 
+![Computer History Museum, October 2009](assets/meet-exo-hero.jpg)
+
 > Most AI assistants feel amazing in week 1 and disappointing in week 3 — because every conversation starts from zero. Exo is the part that remembers.
 
 Exo is a cognitive layer for Claude Code (and Claude Desktop in a lite mode). It captures what happens during your work, consolidates it into structured knowledge between sessions, and shows up to the next conversation already oriented — to your projects, your people, your accounts, your decisions, your in-flight commitments.
@@ -17,9 +19,11 @@ with echo-chamber and focus-gate guards.
 
 When I co-founded MindTouch, we were solving the same problem AI assistants face today: how does a person or organization accumulate institutional knowledge that compounds over time, instead of being re-explained in every meeting?
 
-We got a lot right. MindTouch is still used by tens of millions of people every month — LibreTexts and thousands of customer support knowledge bases run on it.
+MindTouch was a global top-five open source project for many years. We got a lot right. The platform is still used today — LibreTexts and thousands of customer support knowledge bases run on it. Hundreds of millions of people read MindTouch-served pages every month.
 
 But wikis hit a ceiling. They require constant human curation — someone has to write, link, prune, and keep things fresh. Past a certain organizational size, no one keeps it up. The institutional knowledge that should be compounding ends up frozen, stale, or abandoned.
+
+Here's the part I finally have language for: every KM system of the last two decades — wikis, Notion, Confluence, every SaaS KB — is really an *information storage and retrieval* tool. What's actually new about this AI moment is that a system can finally hold a working **mental model** of your domain and bring it with you. Exo is the first thing in the KM lineage that crosses from information to knowledge. The longer argument is in [`MEET-EXO.md`](MEET-EXO.md).
 
 Exo is what I wish I'd been able to build then. An assistant that watches how you work, accumulates state as a side effect, and gets smarter every conversation. No curation tax. My team at OPAQUE has been running on Exo for months. I'm releasing it now because I want others to feel what week-three Exo feels like.
 
