@@ -122,6 +122,7 @@ The pitch isn't novelty. It's craft, discipline, and composition.
 
 ## Docs
 
+- [`MEET-EXO.md`](MEET-EXO.md) — the launch story. Why Exo exists, what's in v1, what it's not.
 - [`docs/install.md`](docs/install.md) — three install paths + Claude Desktop lite mode.
 - [`docs/architecture.md`](docs/architecture.md) — dual-shipping, the `~/Exo` data layer, the three loops in detail.
 - [`docs/security.md`](docs/security.md) — local-first, no Exo server, OAuth on disk, disconnect procedure.

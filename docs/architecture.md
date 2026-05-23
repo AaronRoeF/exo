@@ -9,32 +9,40 @@ Exo runs in two surfaces (Claude Code and Claude Desktop), shares one local data
 ## The dual-shipping diagram
 
 ```
-+---------------------------+        +---------------------------+
-|     Claude Code           |        |     Claude Desktop        |
-|  (full Exo: hooks +       |        |  (lite mode: MCP +        |
-|   slash commands +        |<------>|   Project Instructions    |
-|   shell + skills)         |        |   + dream-by-hand)        |
-+-----------+---------------+        +---------------+-----------+
-            |                                        |
-            |       both surfaces read/write         |
-            |       through the same data layer      |
-            v                                        v
-            +----------------------------------------+
-            |              ~/Exo/                    |
-            |  people/   accounts/   decisions/      |
-            |  intel/    observations/   projects/   |
-            |  personality/   skills/   hooks/       |
-            +----------------------------------------+
-                              ^
-                              |
-            +----------------------------------------+
-            |          exo-mcp server                |
-            |  (read/write the data layer from any   |
-            |   client that speaks MCP)              |
-            +----------------------------------------+
+        +----------------------+    +----------------------+
+        |    Claude Code       |    |   Claude Desktop     |
+        | skills, slash cmds,  |    |   exo-mcp server     |
+        | hooks, personality   |    |   (8 MCP tools)      |
+        +----------+-----------+    +-----------+----------+
+                   |                            |
+                   +-------------+--------------+
+                                 |
+                                 | read + write
+                                 v
+                    +-------------------------+
+                    |         ~/Exo/          |
+                    |  your local data layer  |     never leaves
+                    |                         | <-- your machine
+                    |  observations/          |     (markdown files
+                    |  people/   accounts/    |      you can read in
+                    |  decisions/   intel/    |      any editor)
+                    |  projects/<n>/pulse.md  |
+                    |                         |
+                    |  CLAUDE.md   MEMORY.md  |
+                    |  personality/  skills/  |
+                    +-------------+-----------+
+                                  |
+                                  | read at every
+                                  | session start
+                                  v
+                       (rules + context reload
+                        into the next session)
 ```
 
-The data layer is the source of truth. Surfaces are interchangeable. Lose either one, you still have your Exo state.
+The data layer is the source of truth. Surfaces are interchangeable —
+lose either Claude Code or Claude Desktop access, you still have your
+Exo state in `~/Exo/`. Three loops (described below) do the real work
+on top of this substrate.
 
 ---
 
