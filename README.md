@@ -1,6 +1,6 @@
 # Exo
 
-![Computer History Museum, October 2009](assets/meet-exo-hero.jpg)
+![DEMOfall 2006 — MindTouch's launch](assets/meet-exo-hero.jpg)
 
 > Most AI assistants feel amazing in week 1 and disappointing in week 3 — because every conversation starts from zero. Exo is the part that remembers.
 
