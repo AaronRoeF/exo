@@ -54,8 +54,10 @@ stale_list=()
 active_count=0
 total_count=0
 
-# Look for pulse.md (lowercase) OR PULSE.md (legacy uppercase)
-for pulse in "$PROJECTS_DIR"/*/pulse.md "$PROJECTS_DIR"/*/PULSE.md; do
+# Look for pulse.md (lowercase) OR PULSE.md (legacy uppercase).
+# Use find with -iname for case-insensitive match, then sort -u to dedupe
+# (on case-insensitive macOS the same file matches both name spellings).
+while IFS= read -r pulse; do
     [ -f "$pulse" ] || continue
     total_count=$((total_count+1))
     project=$(basename "$(dirname "$pulse")")
@@ -90,7 +92,7 @@ for pulse in "$PROJECTS_DIR"/*/pulse.md "$PROJECTS_DIR"/*/PULSE.md; do
     pri_num=${pri_num:-9}
     rev_comp=$(printf "%03d" $((100 - comp_num)))
     rows+=("${pri_num}|${rev_comp}|$(printf "  %-32s  %-9s  %-7s  %3s%%  %s" "$project" "$status" "$health" "$comp_num" "$blocked_short")")
-done
+done < <(find "$PROJECTS_DIR" -maxdepth 2 -iname 'pulse.md' 2>/dev/null | sort -u)
 
 echo ""
 echo "==============================================================================="
