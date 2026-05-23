@@ -1,0 +1,29 @@
+{
+  "name": "@aaronroef/exo-mcp",
+  "version": "0.1.0",
+  "description": "MCP server exposing Exo (cognitive stack for Claude) tools to Claude Desktop.",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "exo-mcp": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "tsc --watch"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
