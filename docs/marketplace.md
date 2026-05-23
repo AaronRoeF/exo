@@ -71,7 +71,7 @@ Click `Install` in the marketplace listing. Then in Claude Code, type `/exo` to 
 
 **Claude Desktop lite mode:**
 ```bash
-npm install -g @aaronroef/exo-mcp
+npm install -g exo-mcp
 ```
 Then add to `claude_desktop_config.json` — see [`mcp/exo/README.md`](../mcp/exo/README.md).
 

@@ -11,6 +11,7 @@ import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 import {
   CallToolRequestSchema,
   ListToolsRequestSchema,
+  CallToolResult,
 } from '@modelcontextprotocol/sdk/types.js';
 
 import { captureTool, handleCapture } from './tools/capture.js';
@@ -40,25 +41,25 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
   ],
 }));
 
-server.setRequestHandler(CallToolRequestSchema, async (req) => {
+server.setRequestHandler(CallToolRequestSchema, async (req): Promise<CallToolResult> => {
   const { name, arguments: args } = req.params;
   switch (name) {
     case 'capture':
-      return await handleCapture(args);
+      return (await handleCapture(args)) as CallToolResult;
     case 'dream':
-      return await handleDream(args);
+      return (await handleDream(args)) as CallToolResult;
     case 'pulse':
-      return await handlePulse(args);
+      return (await handlePulse(args)) as CallToolResult;
     case 'daily':
-      return await handleDaily(args);
+      return (await handleDaily(args)) as CallToolResult;
     case 'prep':
-      return await handlePrep(args);
+      return (await handlePrep(args)) as CallToolResult;
     case 'wrap':
-      return await handleWrap(args);
+      return (await handleWrap(args)) as CallToolResult;
     case 'weekly':
-      return await handleWeekly(args);
+      return (await handleWeekly(args)) as CallToolResult;
     case 'enrich':
-      return await handleEnrich(args);
+      return (await handleEnrich(args)) as CallToolResult;
     default:
       throw new Error(`Unknown tool: ${name}`);
   }

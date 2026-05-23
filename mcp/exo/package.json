@@ -1,5 +1,15 @@
 {
-  "name": "@aaronroef/exo-mcp",
+  "name": "exo-mcp",
+  "author": "Aaron Fulkerson <aaronroe@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AaronRoeF/exo.git",
+    "directory": "mcp/exo"
+  },
+  "keywords": ["mcp", "claude", "exo", "knowledge-base", "productivity"],
+  "homepage": "https://github.com/AaronRoeF/exo#readme",
+  "bugs": "https://github.com/AaronRoeF/exo/issues",
   "version": "0.1.0",
   "description": "MCP server exposing Exo (cognitive stack for Claude) tools to Claude Desktop.",
   "type": "module",

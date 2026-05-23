@@ -7,7 +7,7 @@ Exo's primary surface is **Claude Code** (slash commands, skills, hooks). This M
 ## Install
 
 ```bash
-npm install -g @aaronroef/exo-mcp
+npm install -g exo-mcp
 ```
 
 Or use `npx` directly in your Desktop config (no install needed).
@@ -21,7 +21,7 @@ Edit `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) o
   "mcpServers": {
     "exo": {
       "command": "npx",
-      "args": ["-y", "@aaronroef/exo-mcp"],
+      "args": ["-y", "exo-mcp"],
       "env": {
         "EXO_DIR": "/Users/you/Exo"
       }

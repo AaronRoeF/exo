@@ -263,7 +263,7 @@ if [ "$SKIP_MCP" -eq 0 ]; then
     say "from Claude Desktop in addition to (or instead of) Claude Code."
     say ""
     say "To install later:"
-    say "  npm install -g @aaronroef/exo-mcp"
+    say "  npm install -g exo-mcp"
     say "  Then add to your Claude Desktop config (see mcp/exo/README.md)."
     say ""
 fi
