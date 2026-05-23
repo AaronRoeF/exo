@@ -45,11 +45,11 @@ Plain markdown plus a few JSON files. No SQLite, no proprietary format, no daemo
 | Directory | What's in it | Owned by |
 |---|---|---|
 | `people/<firstname-lastname>.md` | One file per key contact. Frontmatter + Context bullets + Interactions log. | Capture (auto-append), wrap/prep (structured update). |
-| `accounts/<company-name>.md` | One file per active account or prospect. Frontmatter + Why-OPAQUE + Key People + Timeline. | Capture + account-related skills. |
+| `accounts/<company-name>.md` | One file per active account or prospect. Frontmatter + Why-This-Company + Key People + Timeline. | Capture + account-related skills. |
 | `decisions/YYYY-MM-DD-<topic>.md` | One file per significant decision (RFD or ADR style). | You (manual create), Exo (suggested create). |
 | `intel/YYYY-MM-DD-<source>-<topic>.md` | Captured signals from competitive research, market reads, customer calls. | Capture skills. |
 | `observations/YYYY-MM-DD.md` | The raw capture stream. One file per day. Bullet per observation. | Capture hooks + the user (TIL command). |
-| `projects/<project>/PULSE.md` | One project tracker per active project. Frontmatter + status + next actions + last stop. | You (manual update), Exo (auto-bump fields). |
+| `projects/<project>/pulse.md` | One project tracker per active project. Frontmatter + status + next actions + last stop. | You (manual update), Exo (auto-bump fields). |
 | `personality/exo-personality.md` | The shipped Exo personality. Swap or fork freely. | You (only edit through RFC if you're contributing back). |
 
 Everything is version-control-friendly. Most users put `~/Exo/` under git (or iCloud + a sidecar git directory) and treat it like a personal monorepo.
