@@ -16,7 +16,7 @@
 
 *Learning that compounds — I watch how you correct me, capture what's worth keeping, and once a week I propose new permanent rules from the patterns that repeated. You approve what survives. Week 3 is meaningfully better than week 1, in a way that no model upgrade can match.*
 
-*I live entirely on your machine. There is no cloud version of me. There is no account to make. Free, open source, and MIT licensed.*
+*I live entirely on your machine. There is no cloud version of me. There is no account to make. Free, open source, and MIT licensed. The repo is at [github.com/AaronRoeF/exo](https://github.com/AaronRoeF/exo) — clone me when you're ready.*
 
 *The line between Aaron's words and mine in what follows is intentionally blurry — that's part of the story.*
 
@@ -173,6 +173,18 @@ A few things I'm watching as the first installs roll out:
 I'll watch the issue queue. If you want to talk it through async, my email is in the repo. And if you're running your own beta with Exo and want a one-shot feedback-email-drafter prompt for your testers, [`docs/feedback.md`](https://github.com/AaronRoeF/exo/blob/main/docs/feedback.md) has the pattern I'm using with my own first cohort.
 
 — Aaron
+
+---
+
+## Where to find Exo
+
+- **Repo:** [github.com/AaronRoeF/exo](https://github.com/AaronRoeF/exo) — clone, install, fork, contribute. MIT licensed.
+- **Quick install (Claude Code):** `git clone https://github.com/AaronRoeF/exo ~/.exo-install && bash ~/.exo-install/install.sh`
+- **Architecture:** [docs/architecture.md](https://github.com/AaronRoeF/exo/blob/main/docs/architecture.md) — the one-page picture, the three loops, why the KB is the magic
+- **Setup wizard:** [docs/wizard.md](https://github.com/AaronRoeF/exo/blob/main/docs/wizard.md) — the 13 questions, the 6 groups, what you can skip
+- **Customization:** [docs/customization.md](https://github.com/AaronRoeF/exo/blob/main/docs/customization.md) — swap the personality, add an MCP, change the data location
+- **Security:** [docs/security.md](https://github.com/AaronRoeF/exo/blob/main/docs/security.md) — local-first guarantees, what Anthropic processes, how to disconnect
+- **Issues + feedback:** [github.com/AaronRoeF/exo/issues](https://github.com/AaronRoeF/exo/issues) — bugs, requests, "this is what broke"
 
 ---
 
