@@ -1,4 +1,4 @@
-# Knowledge Management Tools Were Always Just Information Storage/Retrieval. I Fixed That. (It's Open Source.)
+# Knowledge Management Tools Were Always Just Information Storage/Retrieval. We Fixed That. (It's Open Source.)
 
 ![DEMOfall 2006 — MindTouch's launch](assets/meet-exo-hero.jpg)
 
@@ -40,7 +40,7 @@ Here's the part I've been chewing on for twenty years, and I think I can finally
 
 Wikis, Notion, Confluence, every SaaS KB of the last two decades — they're not knowledge tools. They're *information storage and retrieval* tools. You put a document in, you pull a document out. That's it.
 
-Information becomes knowledge inside a human brain, and only there. The conversion requires two things the wiki never had: **context** (where does this fit, what does it touch, what changed since last week) and **a mental model** (how the domain actually works, what matters, what's a tell). Without those, you have a filing cabinet. A very searchable filing cabinet — but a filing cabinet.
+Information becomes knowledge inside a human brain, and only there. The conversion requires two things the wiki never had: **context** (where does this fit, what does it touch, what changed since last week) and **a mental model** (how the domain actually works, how to apply, an effective means for processing information). Without those, you have a filing cabinet. A very searchable filing cabinet — but a filing cabinet.
 
 I'm allowed to say this because I built one of the big ones. MindTouch was great at what wikis can do. It was never going to cross the line into knowledge, and no amount of better search, better tagging, or better editor was going to get it there. The ceiling was structural, not a UX bug.
 
