@@ -28,7 +28,7 @@ Here's the part I finally have language for: every KM system of the last two dec
 Exo is what I wish I'd been able to build then. An assistant that watches how you work, accumulates state as a side effect, and gets smarter every conversation. No curation tax. My team at OPAQUE has been running on Exo for months. I'm releasing it now because I want others to feel what week-three Exo feels like.
 
 — **Aaron Fulkerson**
-Founder, OPAQUE Systems · Co-founder, MindTouch
+CEO, OPAQUE Systems · Co-founder, MindTouch
 
 ---
 
