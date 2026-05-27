@@ -143,5 +143,4 @@ MIT. See [`LICENSE`](LICENSE).
 
 ## More
 
-- **Internal (OPAQUEling) version on Notion:** [link pending — added after Notion page goes live]
-- **Launch post on aaronfulkerson.com:** [link pending — added after blog post publishes]
+- **Launch post:** [aaronfulkerson.com/2026/05/23/meet-exo/](https://aaronfulkerson.com/2026/05/23/meet-exo/) — the longer story behind Exo, the MindTouch lineage, and what's actually new.
