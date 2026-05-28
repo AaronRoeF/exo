@@ -2,11 +2,20 @@
 
 ![DEMOfall 2006 — MindTouch's launch](assets/meet-exo-hero.jpg)
 
-> Most AI assistants feel amazing in week 1 and disappointing in week 3 — because every conversation starts from zero. Exo is the part that remembers.
+A local-first cognitive layer for [Claude Code](https://code.claude.com/) (and Claude Desktop in a lite mode) that captures signal as you work, consolidates patterns between sessions, and proposes rules to you for approval — so what you learn compounds across conversations instead of restarting from zero every time.
 
-Exo is a cognitive layer for Claude Code (and Claude Desktop in a lite mode). It captures what happens during your work, consolidates it into structured knowledge between sessions, and shows up to the next conversation already oriented — to your projects, your people, your accounts, your decisions, your in-flight commitments.
+---
 
-This repo is the open source package. MIT licensed. Local-first. No telemetry, no Exo cloud, no account required.
+## What Is This?
+
+Exo sits alongside your Claude Code setup and acts as the "operating system" for your sessions. It provides:
+
+- **Capture / Consolidate / Promote loop** — hooks capture signal as you work; consolidation finds patterns between sessions; proposals graduate to rules only with your approval. (See [How it works](#how-it-works) for the three loops in detail.)
+- **Project Pulse** — a `PULSE.md` per active project, with a focus-lock + dashboard backed by `pulse-*.sh` hooks. Edit a file in a different project and Exo warns you to update the departing project's `Last Stop` before switching.
+- **Echo-chamber guard** — signals you authored yourself are filtered out of pattern detection, so Exo doesn't "discover" things you already told it. No memory-consolidation system surveyed implements this.
+- **MCP server orchestration** — first-class support for Google Drive, Gmail, Slack, Jira, iMessage, Playwright, Granola, WHOOP, Apple, Things, and Obsidian.
+- **Skill routing** — natural-language trigger phrases routed to skills in child project repos.
+- **Local-first, MIT-licensed** — no telemetry, no Exo cloud, no account required.
 
 ```
 A capture-consolidate cognitive stack for Claude Code
