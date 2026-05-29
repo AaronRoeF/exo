@@ -2,7 +2,7 @@
 
 ![DEMOfall 2006 — MindTouch's launch](assets/meet-exo-hero.jpg)
 
-A local-first cognitive layer for [Claude Code](https://code.claude.com/) (and Claude Desktop in a lite mode) that captures signal as you work, consolidates patterns between sessions, and proposes rules to you for approval — so what you learn compounds across conversations instead of restarting from zero every time.
+A meta-environment for [Claude Code](https://code.claude.com/) that provides unified context management, MCP server configuration, skill routing, and persistent memory across multiple project repos.
 
 ---
 
