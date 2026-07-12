@@ -1,6 +1,6 @@
 # Code of Conduct — Exo
 
-Contact for reports: aaronroe@gmail.com
+Contact for reports: aaron@opaque.co
 
 ---
 
