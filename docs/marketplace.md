@@ -47,7 +47,7 @@ MIT licensed. Built on lessons from MindTouch (acquired by NICE; still powers Li
 ### Author
 - Name: Aaron Fulkerson
 - URL: `https://aaronfulkerson.com`
-- Email (support): `aaronroe@gmail.com`
+- Email (support): `aaron@opaque.co`
 
 ### License
 `MIT`
