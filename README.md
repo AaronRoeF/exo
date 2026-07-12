@@ -139,6 +139,7 @@ The pitch isn't novelty. It's craft, discipline, and composition.
 - [`docs/install.md`](docs/install.md) — three install paths + Claude Desktop lite mode.
 - [`docs/architecture.md`](docs/architecture.md) — dual-shipping, the `~/Exo` data layer, the three loops in detail.
 - [`docs/security.md`](docs/security.md) — local-first, no Exo server, OAuth on disk, disconnect procedure.
+- [`docs/hardening-doctrine.md`](docs/hardening-doctrine.md) — four rules that keep a learning loop alive, taught by a real 31-day silent outage.
 - [`docs/customization.md`](docs/customization.md) — swap the personality, add MCPs, opt-in power surfaces.
 - [`docs/wizard.md`](docs/wizard.md) — the setup wizard in detail.
 
