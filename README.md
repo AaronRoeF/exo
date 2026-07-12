@@ -76,7 +76,7 @@ The default posture is **demote, don't delete.** Old context goes into deeper st
 Three install paths. Pick whichever matches your setup.
 
 - **Anthropic Plugin Marketplace** (when live) — one-click install from inside Claude Code.
-- **One-line bootstrap** — `curl -sSL https://exo.tools/install | bash` (domain pending; see `docs/install.md` for current status).
+- **One-line bootstrap** — planned once the installer domain is live and serving from owned infrastructure; until then use the git clone path below.
 - **Git clone** — `git clone https://github.com/AaronRoeF/exo ~/.claude/skills/exo && bash ~/.claude/skills/exo/install.sh`.
 
 For Claude Desktop users without Claude Code: there's a lightweight mode that pastes Exo's core context into Project Instructions and uses the `exo-mcp` server for state access. See [`docs/install.md`](docs/install.md) for the full walkthrough on both surfaces.

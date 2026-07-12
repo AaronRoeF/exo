@@ -1,6 +1,6 @@
 <!--
 SKILL SUMMARY
-lint — Vault health-check. Scans Exo KB for orphan pages, broken wikilinks,
+lint — Vault health-check. Scans Exo data dir for orphan pages, broken wikilinks,
 stale files, missing cross-references, and knowledge gaps. Uses Obsidian MCP.
 Triggers: "lint vault", "vault health", "vault check", "check the vault"
 -->
@@ -19,7 +19,7 @@ output: inline (terminal display)
 - `lint vault`, `vault health`, `vault check`, `check the vault`
 
 ## What It Does
-Periodic health-check of the Exo KB Obsidian vault. Inspired by Karpathy's "Lint" operation in the LLM Wiki pattern — find contradictions, orphan pages, stale claims, missing cross-references, and knowledge gaps.
+Periodic health-check of the Exo data dir Obsidian vault. Inspired by Karpathy's "Lint" operation in the LLM Wiki pattern — find contradictions, orphan pages, stale claims, missing cross-references, and knowledge gaps.
 
 ## Steps
 
@@ -36,7 +36,7 @@ Use `obsidian_unresolved` to find wikilinks that point to non-existent pages.
 
 ### 3. Stale File Detection
 Use `obsidian_recents` inverted — find files NOT modified in 90+ days.
-- Focus on: `ExecOS/people/`, `ExecOS/accounts/`, `projects/`
+- Focus on: `people/`, `accounts/`, `projects/`
 - Exclude: `analyses/`, `observations/`, templates, reference files
 - Report: stale files sorted by staleness, with last-modified date
 - Flag accounts with status != archived that haven't been touched in 90 days

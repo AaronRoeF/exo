@@ -18,7 +18,7 @@ export const captureTool: Tool = {
       category: {
         type: 'string',
         description:
-          'Category tag for this capture (e.g. "gtm", "pe", "personal", "research", "idea").',
+          'Category tag for this capture (e.g. "work", "health", "personal", "research", "idea").',
       },
     },
     required: ['observation', 'category'],

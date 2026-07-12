@@ -31,6 +31,8 @@ The third-party services you connect to (Google Calendar, Gmail, Notion, HubSpot
 
 ---
 
+
+> **Status — target design.** The `~/.config/exo/tokens/` layout and the `exo auth` / `exo disconnect` commands below are the planned interface; current builds manage tokens inside each MCP server's own auth flow (locations vary per server). Until the CLI ships: revoke access at the provider (Google / Notion / Slack / etc.) and delete that server's local token file.
 ## OAuth tokens on disk
 
 Where they live:

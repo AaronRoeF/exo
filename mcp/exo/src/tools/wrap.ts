@@ -102,7 +102,7 @@ export async function handleWrap(args: unknown): Promise<ToolResponse> {
     `- Meeting note: ${meetingFile}\n` +
     (updated.length ? `- Updated person files: ${updated.join(', ')}\n` : `- No existing person files matched.\n`) +
     `\nNote: full /wrap (Granola transcript pull, attendee resolution, auto-creating new person files, ` +
-    `co-pe-til / co-gtm-til triggering) requires the Claude Code skill.`;
+    `advanced capture triggering) requires the Claude Code skill.`;
 
   return { content: [{ type: 'text', text: summary }] };
 }

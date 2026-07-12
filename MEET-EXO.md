@@ -129,7 +129,7 @@ Same Lindy logic as the markdown-not-database call: fewer plugins means fewer de
 
 I'm not the first person to think "AI should remember between sessions." There are venture-backed startups working on this exact problem. The Claude Code community has at least one good-faith capture-consolidate project I learned from (linked below in credits).
 
-What I think is genuinely useful about Exo is the *composition*: capture + consolidate [! tie this back to my explanation of info vs. knowledge, mental models, and how this creates self-organized learning ... ]as one loop, project trackers as a substrate (not just notes), a focus-gate hook that warns when I drift, an echo-chamber guard inside the dream pass, and a five-source consolidation that prevents single-tool myopia.
+What I think is genuinely useful about Exo is the *composition*: capture + consolidate as one loop, project trackers as a substrate (not just notes), a focus-gate hook that warns when I drift, an echo-chamber guard inside the dream pass, and a five-source consolidation that prevents single-tool myopia.
 
 None of those individually is novel. The combination, run for a few months, made a measurable difference to my week. That's the whole pitch.
 

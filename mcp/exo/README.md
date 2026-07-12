@@ -1,6 +1,6 @@
 # exo-mcp
 
-MCP server exposing [Exo](https://github.com/aaronroe/exo-public) (a cognitive stack for Claude) to Claude Desktop.
+MCP server exposing [Exo](https://github.com/AaronRoeF/exo) (a cognitive stack for Claude) to Claude Desktop.
 
 Exo's primary surface is **Claude Code** (slash commands, skills, hooks). This MCP server is the **Claude Desktop lite mode** — it wraps your `~/Exo/` data directory and surfaces the same KB operations as MCP tools so you can use Exo from Desktop.
 
@@ -51,4 +51,4 @@ Desktop MCP doesn't have native access to your calendar, Gmail, Granola, LinkedI
 
 ## Repo
 
-Full source and documentation: https://github.com/aaronroe/exo-public
+Full source and documentation: https://github.com/AaronRoeF/exo

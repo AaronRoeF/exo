@@ -22,13 +22,10 @@ That's it. The plugin handles directory creation, hooks, and MCP registration.
 
 ## Path 2 — One-line bootstrap
 
-The fastest install today.
+Planned as the fastest path — **not yet live**.
 
-```bash
-curl -sSL https://exo.tools/install | bash
-```
 
-> **Status:** the `exo.tools` domain is pending. Until it's live, use Path 3 (git clone).
+> **Status:** the `exo.tools` domain is pending and not yet owned-and-serving. Until it is, use Path 3 (git clone) — never pipe an unverified URL into bash.
 
 The bootstrap script:
 
