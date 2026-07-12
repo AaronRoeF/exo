@@ -1,6 +1,6 @@
 # Code of Conduct — Exo
 
-Contact for reports: aaron@opaque.co
+Contact for reports: via https://aaronfulkerson.com
 
 ---
 
