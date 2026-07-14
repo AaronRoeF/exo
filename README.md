@@ -141,6 +141,7 @@ The pitch isn't novelty. It's craft, discipline, and composition.
 - [`docs/security.md`](docs/security.md) — local-first, no Exo server, OAuth on disk, disconnect procedure.
 - [`docs/hardening-doctrine.md`](docs/hardening-doctrine.md) — four rules that keep a learning loop alive, taught by a real 31-day silent outage.
 - [`docs/customization.md`](docs/customization.md) — swap the personality, add MCPs, opt-in power surfaces.
+- [`docs/trace-audit.md`](docs/trace-audit.md) — opt-in signed, tamper-evident audit log of agent actions, in the open TRACE format.
 - [`docs/wizard.md`](docs/wizard.md) — the setup wizard in detail.
 
 ## Contributing
