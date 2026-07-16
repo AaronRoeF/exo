@@ -133,6 +133,24 @@ The pitch isn't novelty. It's craft, discipline, and composition.
 
 ---
 
+## Verifiable audit trail (opt-in)
+
+**What you get:** a tamper-evident record of what the agent actually did — what ran, under which policy, touching which data class — that *anyone* can verify, not just Exo's own code. Edit a record or drop one and verification visibly fails. That turns "trust me, the agent behaved" into "here's the signed proof."
+
+**How it works:** an opt-in `PostToolUse` hook ([`hooks/exo-trace-audit.py`](hooks/exo-trace-audit.py)) writes one signed, hash-chained record per tool call in the open **[TRACE v0.1](https://trace.agentrust-io.com)** format — an interoperable agent-governance standard from **[AgenTrust-io](https://github.com/agentrust-io)**. Records are Ed25519-signed and chained: edit any field or drop any record and the chain breaks visibly.
+
+**The dependency, called out plainly:** this feature — and *only* this feature — uses the upstream **`agentrust-trace`** library (`pip install agentrust-trace`) for the record schema and signing, so records are real, conformant TRACE that verify with any TRACE-conformant tooling instead of a home-grown scheme. **Nothing else in Exo depends on it.**
+
+**It is OFF by default.**
+- **To opt out — which is the default:** do nothing. Don't install the library and don't wire the hook; Exo runs exactly as before. If the hook is wired but the library isn't installed, it no-ops cleanly. Nothing is ever logged unless you turn it on.
+- **To turn it on:** `pip install agentrust-trace`, then wire the hook — see [`docs/trace-audit.md`](docs/trace-audit.md).
+
+**Privacy:** local-first. Records are written only to local files (`~/Exo/trace/`) — no network, no telemetry. They capture tool-call metadata, so review what's logged in [`docs/trace-audit.md`](docs/trace-audit.md) before enabling on sensitive work. Honest about hardware, too: a laptop has no silicon root of trust, so records are marked `runtime.platform = "software-only"` and can never be mistaken for hardware-rooted evidence.
+
+_Contributed by Imran Siddique._
+
+---
+
 ## Docs
 
 - [`MEET-EXO.md`](MEET-EXO.md) — the launch story. Why Exo exists, what's in v1, what it's not.
