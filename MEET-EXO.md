@@ -1,7 +1,5 @@
 # Knowledge Management Tools Were Always Just Information Storage/Retrieval. We Fixed That. (It's Open Source.)
 
-![DEMOfall 2006 — MindTouch's launch](assets/meet-exo-hero.jpg)
-
 **Most AI assistants feel amazing in week 1 and disappointing in week 3 because nothing on your side accumulates between conversations. [Exo](https://github.com/AaronRoeF/exo) fixes that — local-first, free, open source, MIT-licensed, your data on your machine. Five-minute setup. This post is what I built, why, and what it means for you.**
 
 ---
