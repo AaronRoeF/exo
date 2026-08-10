@@ -1,7 +1,5 @@
 # Exo
 
-![DEMOfall 2006 — MindTouch's launch](assets/meet-exo-hero.jpg)
-
 A meta-environment for [Claude Code](https://code.claude.com/) that provides unified context management, MCP server configuration, skill routing, and persistent memory across multiple project repos.
 
 ---
