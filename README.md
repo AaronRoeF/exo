@@ -41,6 +41,10 @@ CEO, OPAQUE Systems · Co-founder, MindTouch
 
 ## How it works
 
+![How Exo fits together: surfaces read and write one plain-text knowledge base on your own disk; what accumulates there is reviewed weekly and promoted into a rules layer that fires in every session.](assets/exo-systems.svg)
+
+*Full picture, including the subsystem view: [docs/architecture.md](docs/architecture.md).*
+
 > **WIFM:** You write and talk the way you already do. Exo turns the byproducts of your work into a knowledge base that pays compounding interest.
 
 Exo runs three loops in the background. You only notice them when they pay off.
@@ -146,6 +150,18 @@ The pitch isn't novelty. It's craft, discipline, and composition.
 **Privacy:** local-first. Records are written only to local files (`~/Exo/trace/`) — no network, no telemetry. They capture tool-call metadata, so review what's logged in [`docs/trace-audit.md`](docs/trace-audit.md) before enabling on sensitive work. Honest about hardware, too: a laptop has no silicon root of trust, so records are marked `runtime.platform = "software-only"` and can never be mistaken for hardware-rooted evidence.
 
 _Contributed by Imran Siddique._
+
+---
+
+## Where this sits
+
+Each of these stands alone. You do not need any of them to run Exo.
+
+| | |
+|---|---|
+| **[exo-mesh](https://github.com/AaronRoeF/exo-mesh)** | Where Exo's relationship context comes from. Your mail, calendar, iMessage and contacts replicated to your own disk and joined into one record per person — so "prep me for this meeting" has something real to read. One subsystem, published on its own. |
+| **[claude-code-patterns](https://github.com/AaronRoeF/claude-code-patterns)** | The field-tested patterns Exo is built from — what worked, what did not, and why. Read it if you want to build your own rather than run this one. |
+| **[apply-what-you-read](https://github.com/AaronRoeF/apply-what-you-read)** | The same local-first shape applied to books: your highlights become one short lesson a day, on your own machine. |
 
 ---
 

@@ -2,6 +2,25 @@
 
 **What this is for you:** A single picture that shows how Exo's pieces fit together — and where the actual magic lives — so you can decide if the architecture matches how you work before you install anything. Read the diagram, read the "why the KB is the magic" note, decide.
 
+![Exo systems: you work through Claude Code or Claude Desktop, both read and write one
+plain-text knowledge base on your own disk; observations accumulate as a side effect of
+work, a weekly review promotes what survives into the rules layer, and the rules fire in
+every session. exo-mesh supplies relationship context from a local replica of mail,
+calendar, iMessage and contacts.](../assets/exo-systems.svg)
+
+**Subsystems — four ways in, one place it all lands.**
+
+![Exo subsystems: thirteen skills, five slash commands and four hooks run inside Claude
+Code, and an MCP server with eight tools serves other clients. All four write to the same
+plain-text knowledge base. exo-mesh is a separate subsystem, published as its own
+repository, that resolves one person out of mail, calendar, iMessage and
+contacts.](../assets/exo-subsystems.svg)
+
+Every subsystem above is replaceable. The knowledge base is not — it is the only part
+that compounds, and it outlives whatever reads it. [exo-mesh](https://github.com/AaronRoeF/exo-mesh)
+is drawn as its own box because it is its own repository: you can run it without Exo, and
+run Exo without it.
+
 ASCII rendered version below — designed to read cleanly at a glance, with no rendering dependency. (Mermaid source archived at `architecture-diagram-mermaid.md` if you ever want to regenerate an image; PNG is no longer load-bearing for the marketplace listing.)
 
 ---
