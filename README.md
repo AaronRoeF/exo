@@ -178,6 +178,7 @@ Each of these stands alone. You do not need any of them to run Exo.
 - [`MEET-EXO.md`](MEET-EXO.md) — the launch story. Why Exo exists, what's in v1, what it's not.
 - [`docs/install.md`](docs/install.md) — three install paths + Claude Desktop lite mode.
 - [`docs/architecture.md`](docs/architecture.md) — dual-shipping, the `~/Exo` data layer, the three loops in detail.
+- [`docs/architecture-plates.md`](docs/architecture-plates.md) — six plates of the author's full system: how governance reaches a session, what install does to your machine, the learning loop. Says up front what is deliberately left out.
 - [`docs/security.md`](docs/security.md) — local-first, no Exo server, OAuth on disk, disconnect procedure.
 - [`docs/hardening-doctrine.md`](docs/hardening-doctrine.md) — four rules that keep a learning loop alive, taught by a real 31-day silent outage.
 - [`docs/customization.md`](docs/customization.md) — swap the personality, add MCPs, opt-in power surfaces.
