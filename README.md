@@ -39,6 +39,12 @@ CEO, OPAQUE Systems · Co-founder, MindTouch
 
 ---
 
+## IMPORTANT NOTE ON GOVERNANCE AND SECURITY
+
+I'm leaving out big parts of my implementation because I'm not interested in disclosing all the specifics of my security and governance setup. You can see parts of what I'm doing here: agentrust-io.com if you're interested. And generally assume this is a project I'm sharing, not a product. I hope you get value. Enjoy! 
+
+---
+
 ## How it works
 
 ![How Exo fits together: surfaces read and write one plain-text knowledge base on your own disk; what accumulates there is reviewed weekly and promoted into a rules layer that fires in every session.](assets/exo-systems.svg)
