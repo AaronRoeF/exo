@@ -1,0 +1,74 @@
+<svg viewBox="0 0 1080 560" role="img" aria-labelledby="dep-t dep-d" xmlns="http://www.w3.org/2000/svg">
+<title id="dep-t">Install and deploy path</title>
+<desc id="dep-d">Three declarative manifests feed one install script that symlinks harness surfaces, verifies plugin presence, generates the diagram profile, and accumulates failures into a non-zero exit.</desc>
+<defs>
+<marker id="a3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10BA87"/></marker>
+<marker id="n3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#A9AFB6"/></marker>
+<marker id="s3" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#E2C99E"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#1F2125"/>
+
+<path d="M 256 92 L 304 92 Q 312 92 312 100 L 312 184" stroke="#E2C99E" stroke-width="1.2" fill="none" marker-end="url(#s3)"/>
+<path d="M 256 196 L 308 196" stroke="#E2C99E" stroke-width="1.2" fill="none" marker-end="url(#s3)"/>
+<path d="M 256 300 L 304 300 Q 312 300 312 292 L 312 240" stroke="#E2C99E" stroke-width="1.2" fill="none" marker-end="url(#s3)"/>
+<path d="M 536 172 L 600 172" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a3)"/>
+<path d="M 536 224 L 600 224" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a3)"/>
+<path d="M 424 272 L 424 380" stroke="#A9AFB6" stroke-width="1.2" fill="none" marker-end="url(#n3)"/>
+
+<rect x="260" y="64" width="44" height="12" rx="2" fill="#1F2125"/>
+<text x="282" y="73" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">LINK</text>
+<rect x="260" y="168" width="48" height="12" rx="2" fill="#1F2125"/>
+<text x="284" y="177" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">VERIFY</text>
+<rect x="260" y="326" width="68" height="12" rx="2" fill="#1F2125"/>
+<text x="294" y="335" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">GENERATE</text>
+<rect x="540" y="144" width="60" height="12" rx="2" fill="#1F2125"/>
+<text x="570" y="153" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">SYMLINK</text>
+<rect x="540" y="196" width="52" height="12" rx="2" fill="#1F2125"/>
+<text x="566" y="205" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">WRITE</text>
+<rect x="440" y="312" width="80" height="12" rx="2" fill="#1F2125"/>
+<text x="480" y="321" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">ACCUMULATE</text>
+
+<rect x="72" y="64" width="184" height="56" rx="6" fill="#363534" stroke="#E2C99E" stroke-width="1.2"/>
+<text x="164" y="88" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">skills-manifest</text>
+<text x="164" y="106" fill="#E2C99E" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">name = path</text>
+
+<rect x="72" y="168" width="184" height="56" rx="6" fill="#363534" stroke="#E2C99E" stroke-width="1.2"/>
+<text x="164" y="192" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">plugins-manifest</text>
+<text x="164" y="210" fill="#E2C99E" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">declared, not installed</text>
+
+<rect x="72" y="272" width="184" height="56" rx="6" fill="#363534" stroke="#E2C99E" stroke-width="1.2"/>
+<text x="164" y="296" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">diagram-profiles</text>
+<text x="164" y="314" fill="#E2C99E" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">profile + marker records</text>
+
+<rect x="312" y="136" width="224" height="136" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<rect x="326" y="148" width="60" height="12" rx="2" fill="transparent" stroke="#10BA87" stroke-width=".8"/>
+<text x="356" y="157" fill="#10BA87" font-size="7" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".08em">CONVERGE</text>
+<text x="424" y="192" fill="#FEFAFA" font-size="13" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">install.sh</text>
+<text x="424" y="214" fill="#A9AFB6" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">idempotent · subtractive</text>
+<text x="424" y="232" fill="#A9AFB6" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">worktree-guarded</text>
+<text x="424" y="256" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">manual only — nothing calls it</text>
+
+<rect x="600" y="136" width="204" height="64" rx="6" fill="#2a2c30" stroke="#57575a" stroke-width="1.2"/>
+<text x="702" y="164" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">~/.claude</text>
+<text x="702" y="182" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">hooks · commands · skills</text>
+
+<rect x="600" y="220" width="204" height="64" rx="6" fill="#2a2c30" stroke="#57575a" stroke-width="1.2"/>
+<text x="702" y="248" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">~/.diagram-design</text>
+<text x="702" y="266" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">generated profile</text>
+
+<rect x="312" y="380" width="224" height="76" rx="6" fill="#2a2c30" stroke="#A9AFB6" stroke-width="1.2"/>
+<text x="424" y="408" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">FAILURES[] → exit 1</text>
+<text x="424" y="428" fill="#A9AFB6" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">after every section runs</text>
+<text x="424" y="444" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">was: warn, continue, exit 0</text>
+
+<line x1="72" y1="492" x2="1008" y2="492" stroke="#3a3b3f" stroke-width=".8"/>
+<text x="72" y="512" fill="#878E96" font-size="8" font-family="Montserrat,sans-serif" font-weight="600" letter-spacing=".18em">LEGEND</text>
+<rect x="164" y="504" width="14" height="10" rx="2" fill="#363534" stroke="#E2C99E" stroke-width="1.2"/>
+<text x="186" y="513" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Declaration — inert</text>
+<rect x="336" y="504" width="14" height="10" rx="2" fill="#1d3331" stroke="#10BA87" stroke-width="1.2"/>
+<text x="358" y="513" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Converger</text>
+<rect x="472" y="504" width="14" height="10" rx="2" fill="#2a2c30" stroke="#57575a" stroke-width="1.2"/>
+<text x="494" y="513" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Deployed surface</text>
+<rect x="648" y="504" width="14" height="10" rx="2" fill="#2a2c30" stroke="#A9AFB6" stroke-width="1.2"/>
+<text x="670" y="513" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Exit gate</text>
+</svg>

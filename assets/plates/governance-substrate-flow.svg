@@ -1,0 +1,61 @@
+<svg viewBox="0 0 1080 460" role="img" aria-labelledby="gov-t gov-d" xmlns="http://www.w3.org/2000/svg">
+<title id="gov-t">Governance substrate flow</title>
+<desc id="gov-d">Rule files are compiled by a boot hook into a regenerated index injected into session context; decision records sit on a lower track that is written but never loaded, linked only by a human obligation.</desc>
+<defs>
+<marker id="a2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10BA87"/></marker>
+<marker id="n2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#A9AFB6"/></marker>
+<marker id="s2" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#E2C99E"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#1F2125"/>
+
+<path d="M 264 116 L 320 116" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a2)"/>
+<path d="M 512 116 L 568 116" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a2)"/>
+<path d="M 760 116 L 816 116" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a2)"/>
+<path d="M 264 320 L 320 320" stroke="#E2C99E" stroke-width="1.2" fill="none" marker-end="url(#s2)"/>
+<path d="M 168 272 L 168 168" stroke="#E2C99E" stroke-width="1.2" stroke-dasharray="5,4" fill="none" marker-end="url(#s2)"/>
+
+<rect x="272" y="88" width="40" height="12" rx="2" fill="#1F2125"/>
+<text x="292" y="97" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">SCAN</text>
+<rect x="516" y="88" width="48" height="12" rx="2" fill="#1F2125"/>
+<text x="540" y="97" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">EMIT</text>
+<rect x="760" y="88" width="56" height="12" rx="2" fill="#1F2125"/>
+<text x="788" y="97" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">BINDS</text>
+<rect x="272" y="292" width="48" height="12" rx="2" fill="#1F2125"/>
+<text x="296" y="301" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">INDEX</text>
+<rect x="184" y="206" width="112" height="12" rx="2" fill="#1F2125"/>
+<text x="240" y="215" fill="#E2C99E" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">MUST EDIT THE RULE</text>
+
+<rect x="72" y="80" width="192" height="76" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<text x="168" y="112" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Rule files</text>
+<text x="168" y="132" fill="#10BA87" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">149 · one per rule</text>
+
+<rect x="320" y="80" width="192" height="76" rx="6" fill="#2a2c30" stroke="#A9AFB6" stroke-width="1.2"/>
+<text x="416" y="112" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">rules-loaded-check</text>
+<text x="416" y="132" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">SessionStart hook</text>
+
+<rect x="568" y="80" width="192" height="76" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<text x="664" y="112" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">INDEX.md</text>
+<text x="664" y="132" fill="#10BA87" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">60 always-on · 89 triggered</text>
+
+<rect x="816" y="80" width="192" height="76" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<text x="912" y="112" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Session context</text>
+<text x="912" y="132" fill="#10BA87" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">binds every output</text>
+
+<rect x="72" y="284" width="192" height="76" rx="6" fill="#363534" stroke="#E2C99E" stroke-width="1.2"/>
+<text x="168" y="316" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">ADRs</text>
+<text x="168" y="336" fill="#E2C99E" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">61 · immutable once accepted</text>
+<!-- exo-count:plate2-adrs-total=61 -->
+
+<rect x="320" y="284" width="192" height="76" rx="6" fill="#363534" stroke="#E2C99E" stroke-width="1.2"/>
+<text x="416" y="316" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">decision-log.md</text>
+<text x="416" y="336" fill="#E2C99E" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">never injected at boot</text>
+
+<line x1="72" y1="396" x2="1008" y2="396" stroke="#3a3b3f" stroke-width=".8"/>
+<text x="72" y="416" fill="#878E96" font-size="8" font-family="Montserrat,sans-serif" font-weight="600" letter-spacing=".18em">LEGEND</text>
+<rect x="164" y="408" width="14" height="10" rx="2" fill="#1d3331" stroke="#10BA87" stroke-width="1.2"/>
+<text x="186" y="417" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Loaded at boot — binds output</text>
+<rect x="400" y="408" width="14" height="10" rx="2" fill="#363534" stroke="#E2C99E" stroke-width="1.2"/>
+<text x="422" y="417" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Recorded — never loaded</text>
+<line x1="628" y1="413" x2="660" y2="413" stroke="#E2C99E" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="668" y="417" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Human obligation, not automation</text>
+</svg>

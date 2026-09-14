@@ -1,0 +1,78 @@
+<svg viewBox="0 0 1080 700" role="img" aria-labelledby="boot-t boot-d" xmlns="http://www.w3.org/2000/svg">
+<title id="boot-t">Boot-time context assembly</title>
+<desc id="boot-d">Three source families reach the session by two mechanisms: the CLAUDE.md chain is read natively by the harness, while personality and rules are injected as stdout by SessionStart hooks; a sigil canary distinguishes the two at runtime.</desc>
+<defs>
+<marker id="a7" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10BA87"/></marker>
+<marker id="b7" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#00B0FF"/></marker>
+<marker id="n7" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#A9AFB6"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#1F2125"/>
+
+<path d="M 212 160 L 212 240" stroke="#00B0FF" stroke-width="1.2" fill="none" marker-end="url(#b7)"/>
+<path d="M 540 160 L 540 240" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a7)"/>
+<path d="M 868 160 L 868 240" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a7)"/>
+<path d="M 212 328 L 212 368 Q 212 376 220 376 L 392 376 Q 400 376 400 384 L 400 408" stroke="#00B0FF" stroke-width="1.2" fill="none" marker-end="url(#b7)"/>
+<path d="M 704 328 L 704 368 Q 704 376 696 376 L 688 376 Q 680 376 680 384 L 680 408" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a7)"/>
+<path d="M 540 512 L 540 560" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a7)"/>
+
+<rect x="228" y="184" width="72" height="12" rx="2" fill="#1F2125"/>
+<text x="264" y="193" fill="#00B0FF" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">HARNESS</text>
+<rect x="556" y="184" width="72" height="12" rx="2" fill="#1F2125"/>
+<text x="592" y="193" fill="#10BA87" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">EXO HOOK</text>
+<rect x="884" y="184" width="88" height="12" rx="2" fill="#1F2125"/>
+<text x="928" y="193" fill="#10BA87" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">REGENERATED</text>
+<rect x="228" y="348" width="88" height="12" rx="2" fill="#1F2125"/>
+<text x="272" y="357" fill="#00B0FF" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">FILE IS READ</text>
+<rect x="736" y="348" width="96" height="12" rx="2" fill="#1F2125"/>
+<text x="784" y="357" fill="#10BA87" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">STDOUT INJECTED</text>
+<rect x="556" y="528" width="72" height="12" rx="2" fill="#1F2125"/>
+<text x="592" y="537" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">PROVES</text>
+
+<rect x="72" y="64" width="280" height="96" rx="6" fill="#1b323f" stroke="#00B0FF" stroke-width="1.2"/>
+<text x="212" y="96" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">CLAUDE.md chain</text>
+<text x="212" y="118" fill="#00B0FF" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">~/.claude 589 · project 107</text>
+<text x="212" y="134" fill="#00B0FF" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">KB 306 · skill-gotchas 132</text>
+<!-- exo-count:plate7-claude-user-lines=589 -->
+<!-- exo-count:plate7-skill-gotchas-lines=132 -->
+<text x="212" y="150" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">deployed real files, not symlinks</text>
+
+<rect x="400" y="64" width="280" height="96" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<text x="540" y="96" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">exo-personality.md</text>
+<text x="540" y="118" fill="#10BA87" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">9 traits · 149 lines</text>
+<text x="540" y="140" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">Ballast · Finisher · Bouncer · +6</text>
+
+<rect x="728" y="64" width="280" height="96" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<text x="868" y="96" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">rules/ — one file per rule</text>
+<text x="868" y="118" fill="#10BA87" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">149 active</text>
+<text x="868" y="140" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">60 always-on · 89 trigger-loaded</text>
+
+<rect x="72" y="240" width="280" height="88" rx="6" fill="#2a2c30" stroke="#00B0FF" stroke-width="1.2"/>
+<text x="212" y="274" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Native read</text>
+<text x="212" y="296" fill="#00B0FF" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">the harness does this</text>
+<text x="212" y="312" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">Exo cannot verify it happened</text>
+
+<rect x="400" y="240" width="608" height="88" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<rect x="414" y="252" width="76" height="12" rx="2" fill="transparent" stroke="#10BA87" stroke-width=".8"/>
+<text x="452" y="261" fill="#10BA87" font-size="7" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".08em">24 HOOKS</text>
+<text x="704" y="286" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">SessionStart hooks — stdout becomes context</text>
+<text x="704" y="308" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">personality · rules INDEX · PULSE dashboard · 18 drift checks (warn only)</text>
+
+<rect x="328" y="408" width="424" height="104" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<rect x="342" y="420" width="60" height="12" rx="2" fill="transparent" stroke="#10BA87" stroke-width=".8"/>
+<text x="372" y="429" fill="#10BA87" font-size="7" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".08em">RUNTIME</text>
+<text x="540" y="458" fill="#FEFAFA" font-size="13" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Assembled session context</text>
+<text x="540" y="480" fill="#A9AFB6" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">60 rules inlined verbatim + 89 as a trigger table</text>
+<text x="540" y="498" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">survives compaction via post-compact-reload</text>
+
+<rect x="328" y="560" width="424" height="76" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<text x="540" y="590" fill="#FEFAFA" font-size="12" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Ξ  the load canary</text>
+<text x="540" y="612" fill="#10BA87" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">no sigil = personality never loaded = un-governed</text>
+<text x="540" y="628" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">defined ONLY in the personality file — cannot be faked from CLAUDE.md</text>
+
+<line x1="72" y1="660" x2="1008" y2="660" stroke="#3a3b3f" stroke-width=".8"/>
+<text x="72" y="680" fill="#878E96" font-size="8" font-family="Montserrat,sans-serif" font-weight="600" letter-spacing=".18em">LEGEND</text>
+<rect x="164" y="672" width="14" height="10" rx="2" fill="#1b323f" stroke="#00B0FF" stroke-width="1.2"/>
+<text x="186" y="681" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Harness mechanism — Exo cannot verify it</text>
+<rect x="472" y="672" width="14" height="10" rx="2" fill="#1d3331" stroke="#10BA87" stroke-width="1.2"/>
+<text x="494" y="681" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Exo mechanism — hook-injected, canary-verified</text>
+</svg>

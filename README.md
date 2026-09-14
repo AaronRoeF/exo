@@ -51,6 +51,8 @@ I'm leaving out big parts of my implementation because I'm not interested in dis
 
 *Full picture, including the subsystem view: [docs/architecture.md](docs/architecture.md).*
 
+*Six plates of the author's full system, with what is deliberately omitted stated up front: [docs/architecture-plates.md](docs/architecture-plates.md).*
+
 > **WIFM:** You write and talk the way you already do. Exo turns the byproducts of your work into a knowledge base that pays compounding interest.
 
 Exo runs three loops in the background. You only notice them when they pay off.

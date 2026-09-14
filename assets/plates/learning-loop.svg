@@ -1,0 +1,63 @@
+<svg viewBox="0 0 1080 560" role="img" aria-labelledby="loop-t loop-d" xmlns="http://www.w3.org/2000/svg">
+<title id="loop-t">Learning loop</title>
+<desc id="loop-d">A four-stage cycle in which a session produces observations, observations accumulate to a review threshold, review promotes durable lessons into rule files, and those rules bind the next session.</desc>
+<defs>
+<marker id="a4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10BA87"/></marker>
+<marker id="n4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#A9AFB6"/></marker>
+<marker id="s4" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#E2C99E"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="#1F2125"/>
+
+<!-- perimeter cycle, orthogonal -->
+<path d="M 388 116 L 632 116" stroke="#A9AFB6" stroke-width="1.2" fill="none" marker-end="url(#n4)"/>
+<path d="M 856 176 L 856 316" stroke="#A9AFB6" stroke-width="1.2" fill="none" marker-end="url(#n4)"/>
+<path d="M 632 376 L 388 376" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a4)"/>
+<path d="M 224 316 L 224 176" stroke="#10BA87" stroke-width="1.4" fill="none" marker-end="url(#a4)"/>
+<path d="M 468 344 L 468 256" stroke="#E2C99E" stroke-width="1.2" stroke-dasharray="5,4" fill="none" marker-end="url(#s4)"/>
+
+<rect x="472" y="88" width="60" height="12" rx="2" fill="#1F2125"/>
+<text x="502" y="97" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">CAPTURE</text>
+<rect x="872" y="234" width="88" height="12" rx="2" fill="#1F2125"/>
+<text x="916" y="243" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">30 FILES / 7 DAYS</text>
+<rect x="472" y="392" width="60" height="12" rx="2" fill="#1F2125"/>
+<text x="502" y="401" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">PROMOTE</text>
+<rect x="120" y="234" width="88" height="12" rx="2" fill="#1F2125"/>
+<text x="164" y="243" fill="#A9AFB6" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">BINDS NEXT BOOT</text>
+<rect x="524" y="288" width="104" height="12" rx="2" fill="#1F2125"/>
+<text x="576" y="297" fill="#E2C99E" font-size="8" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".06em">SILENCE TRIPWIRE</text>
+
+<rect x="112" y="76" width="276" height="100" rx="6" fill="#2a2c30" stroke="#57575a" stroke-width="1.2"/>
+<text x="250" y="118" fill="#FEFAFA" font-size="13" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Session + correction</text>
+<text x="250" y="140" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">Aaron pushes back on an output</text>
+<text x="250" y="158" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">TIL trigger at end of day</text>
+
+<rect x="632" y="76" width="336" height="100" rx="6" fill="#2a2c30" stroke="#57575a" stroke-width="1.2"/>
+<text x="800" y="118" fill="#FEFAFA" font-size="13" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Observations queue</text>
+<text x="800" y="140" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">one file per capture, unreviewed</text>
+<text x="800" y="158" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">accumulates until threshold</text>
+
+<rect x="632" y="316" width="336" height="100" rx="6" fill="#2a2c30" stroke="#A9AFB6" stroke-width="1.2"/>
+<text x="800" y="358" fill="#FEFAFA" font-size="13" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Graduation review</text>
+<text x="800" y="380" fill="#A9AFB6" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">recurrence ≥ 3 earns a rule</text>
+<text x="800" y="398" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">the rest are discarded</text>
+
+<rect x="112" y="316" width="276" height="100" rx="6" fill="#1d3331" stroke="#10BA87" stroke-width="1.4"/>
+<rect x="126" y="328" width="52" height="12" rx="2" fill="transparent" stroke="#10BA87" stroke-width=".8"/>
+<text x="152" y="337" fill="#10BA87" font-size="7" font-family="'Roboto Mono',monospace" text-anchor="middle" letter-spacing=".08em">DURABLE</text>
+<text x="250" y="368" fill="#FEFAFA" font-size="13" font-weight="500" font-family="Roboto,sans-serif" text-anchor="middle">Rule file</text>
+<text x="250" y="390" fill="#10BA87" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">always-on or trigger-loaded</text>
+<text x="250" y="408" fill="#878E96" font-size="9" font-family="'Roboto Mono',monospace" text-anchor="middle">survives compaction + machines</text>
+
+<rect x="424" y="256" width="88" height="88" rx="44" fill="#1F2125" stroke="#3a3b3f" stroke-width="1"/>
+<text x="468" y="296" fill="#878E96" font-size="8" font-family="Montserrat,sans-serif" font-weight="600" text-anchor="middle" letter-spacing=".14em">COMPOUND</text>
+<text x="468" y="312" fill="#878E96" font-size="8" font-family="Montserrat,sans-serif" font-weight="600" text-anchor="middle" letter-spacing=".14em">ING</text>
+
+<line x1="72" y1="492" x2="1008" y2="492" stroke="#3a3b3f" stroke-width=".8"/>
+<text x="72" y="512" fill="#878E96" font-size="8" font-family="Montserrat,sans-serif" font-weight="600" letter-spacing=".18em">LEGEND</text>
+<rect x="164" y="504" width="14" height="10" rx="2" fill="#2a2c30" stroke="#57575a" stroke-width="1.2"/>
+<text x="186" y="513" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Transient stage</text>
+<rect x="320" y="504" width="14" height="10" rx="2" fill="#1d3331" stroke="#10BA87" stroke-width="1.2"/>
+<text x="342" y="513" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Durable constraint</text>
+<line x1="512" y1="509" x2="544" y2="509" stroke="#E2C99E" stroke-width="1.2" stroke-dasharray="5,4"/>
+<text x="552" y="513" fill="#A9AFB6" font-size="9" font-family="Roboto,sans-serif">Dead-man alarm — fires on silence, not backlog</text>
+</svg>
