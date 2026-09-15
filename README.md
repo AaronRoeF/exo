@@ -1,12 +1,6 @@
 # Exo
 
-**Everything you teach Claude is gone next session. This makes it stick.**
-
-You correct it, you explain how you work, you say where the project actually stands — and tomorrow
-you do all of it again. Exo keeps that in plain text on your own disk and loads it at the start of
-every session, so the assistant accumulates state as a side effect of the work instead of asking
-you to curate it. It runs alongside [Claude Code](https://code.claude.com/) and handles context,
-skills, MCP servers and project state across every repo you work in.
+A meta-environment for [Claude Code](https://code.claude.com/) that provides unified context management, MCP server configuration, skill routing, and persistent memory across multiple project repos.
 
 ---
 
