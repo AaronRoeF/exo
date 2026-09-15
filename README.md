@@ -1,6 +1,12 @@
 # Exo
 
-A meta-environment for [Claude Code](https://code.claude.com/) that provides unified context management, MCP server configuration, skill routing, and persistent memory across multiple project repos.
+**Everything you teach Claude is gone next session. This makes it stick.**
+
+You correct it, you explain how you work, you say where the project actually stands — and tomorrow
+you do all of it again. Exo keeps that in plain text on your own disk and loads it at the start of
+every session, so the assistant accumulates state as a side effect of the work instead of asking
+you to curate it. It runs alongside [Claude Code](https://code.claude.com/) and handles context,
+skills, MCP servers and project state across every repo you work in.
 
 ---
 
@@ -167,9 +173,9 @@ Each of these stands alone. You do not need any of them to run Exo.
 
 | | |
 |---|---|
-| **[exo-mesh](https://github.com/AaronRoeF/exo-mesh)** | Where Exo's relationship context comes from. Your mail, calendar, iMessage and contacts replicated to your own disk and joined into one record per person — so "prep me for this meeting" has something real to read. One subsystem, published on its own. |
-| **[claude-code-patterns](https://github.com/AaronRoeF/claude-code-patterns)** | The field-tested patterns Exo is built from — what worked, what did not, and why. Read it if you want to build your own rather than run this one. |
-| **[apply-what-you-read](https://github.com/AaronRoeF/apply-what-you-read)** | The same local-first shape applied to books: your highlights become one short lesson a day, on your own machine. |
+| **[exo-mesh](https://github.com/AaronRoeF/exo-mesh)** | Where Exo's relationship context comes from. Your mail, calendar, iMessage and contacts land on your own disk and resolve to one record per person, so "prep me for this meeting" has something real to read. It's one subsystem, published on its own. |
+| **[claude-code-patterns](https://github.com/AaronRoeF/claude-code-patterns)** | The patterns Exo is built from, including the ones that failed. Read it if you'd rather build your own than run this one. |
+| **[apply-what-you-read](https://github.com/AaronRoeF/apply-what-you-read)** | The same local-first shape, pointed at books. Continuous learning from reading you've already done. |
 
 ---
 
