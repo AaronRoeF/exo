@@ -1,0 +1,22 @@
+{
+  "manifest_version": "0.2",
+  "agent_id": "spiffe://example.local/fleet/<job>",
+  "level": 0,
+  "data_class": "<public|internal|confidential>",
+  "model": {"provider": "anthropic", "model_id": "<model id>"},
+  "tool_manifest": {
+    "tools": [
+      {"tool_id": "<reverse-dns tool id>", "tool_name": "<tool name as the runtime calls it>",
+       "egress_destinations": ["<host>"]}
+    ],
+    "allow_dynamic_registration": false,
+    "rug_pull_policy": "deny-and-hold"
+  },
+  "extensions": {
+    "io.exo.filesystem": {
+      "read_deny": ["<store the job must not read directly>"],
+      "write_allow": ["<the job's staging directory>"]
+    },
+    "io.exo.runtime": {"context_window": "<200k|1m>", "effort": "<low|medium|high|xhigh>"}
+  }
+}

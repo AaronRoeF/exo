@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 1280 800" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="after-title after-desc">
+      <title id="after-title">After: Agent Manifest, a sandbox, and TRACE</title>
+      <desc id="after-desc">Architecture of the target design for running unattended AI agents: a job manifest, one per job, renders the sandbox and the agent's settings before each run, and its profile hash goes into the TRACE record; outside the sandbox, a runner started by launchd starts a job script, which calls a wrapper gate that runs an integrity check, a credential refresh with an expiry guard, a startup canary, the agent and a connected-server check; the agent runs inside a kernel sandbox derived from its manifest, from one fixed, code-signed path, and writes its digest to a staging directory; an egress proxy on the sandbox wall passes only Anthropic runtime hosts and the manifest's tool hosts; secret files (keys, credential files, the signing key) and the raw mail replica are denied at the wall; the job script, not the agent, moves the digest into the notes vault; and the runner emits one signed TRACE record per session.</desc>
+      <defs>
+        <style>@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&amp;family=Geist:wght@400;500;600&amp;family=Geist+Mono:wght@400;500;600&amp;display=swap');</style>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4a5058"/></marker>
+        <marker id="arrow-link" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#00b0ff"/></marker>
+        <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10ba87"/></marker>
+      </defs>
+
+      <rect width="100%" height="100%" fill="#f7f3f4"/>
+
+      <!-- header -->
+      <text x="40" y="44" fill="#6e747c" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ARCHITECTURE &#183; THE TARGET DESIGN</text>
+      <text x="40" y="76" fill="#1f2125" font-size="28" font-family="'Instrument Serif', Georgia, serif">A manifest, a sandbox, and TRACE</text>
+      <text x="40" y="100" fill="#4a5058" font-size="12" font-family="'Geist', sans-serif">Deterministic code runs outside; the agent runs sandboxed at one fixed path.</text>
+
+      <!-- ================= ZONES ================= -->
+      <!-- Outside the sandbox -->
+      <rect x="40" y="148" width="304" height="532" rx="8" fill="#f3eff0" stroke="#e1dedf" stroke-width="0.8"/>
+      <rect x="60" y="152" width="264" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="192" y="161" fill="#a19fa1" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.10em">OUTSIDE &#183; DETERMINISTIC CODE, OWN GRANTS</text>
+
+      <!-- Sandbox (security treatment: dashed accent boundary) -->
+      <rect x="392" y="284" width="472" height="384" rx="8" fill="#ebf0ef" stroke="#10ba87" stroke-width="1" stroke-dasharray="4,4"/>
+      <rect x="624" y="288" width="232" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="740" y="297" fill="#1f2125" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.10em">SANDBOX &#183; DERIVED FROM THE MANIFEST</text>
+
+      <!-- Data & world -->
+      <rect x="984" y="148" width="256" height="532" rx="8" fill="#f3eff0" stroke="#e1dedf" stroke-width="0.8"/>
+      <rect x="1068" y="152" width="80" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="1108" y="161" fill="#a19fa1" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.10em">DATA &amp; WORLD</text>
+
+      <!-- ================= ARROWS ================= -->
+
+      <!-- Runner -> Job script -->
+      <line x1="192" y1="236" x2="192" y2="268" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- Job script -> Wrapper gate -->
+      <line x1="192" y1="348" x2="192" y2="380" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- Runner -> TRACE record: left-margin corridor -->
+      <path d="M72,208 H64 Q56,208 56,216 V604 Q56,612 64,612 H72" fill="none" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
+
+      <!-- Job script -> Notes vault: the move, routed over the top of the sandbox -->
+      <path d="M312,300 H348 Q356,300 356,292 V140 Q356,132 364,132 H1152 Q1160,132 1160,140 V180" fill="none" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="712" y="112" width="96" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="760" y="121" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">MOVES DIGEST</text>
+
+      <!-- Gate -> Agent: spawn (straight, matched centers, crosses into the sandbox) -->
+      <line x1="312" y1="452" x2="448" y2="452" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="388" y="432" width="48" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="412" y="441" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">SPAWN</text>
+
+      <!-- Manifest -> Agent: the render builds the sandbox, flags and tool list -->
+      <line x1="568" y1="244" x2="568" y2="380" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <rect x="576" y="316" width="56" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="604" y="325" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">RENDERS</text>
+
+      <!-- Manifest -> TRACE record: profile hash (dashed), corridor between the zones, hop over SPAWN -->
+      <path d="M448,212 H384 Q376,212 376,220 V444 a8,8 0 0,0 0,16 V604 Q376,612 368,612 H312" fill="none" stroke="#4a5058" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <rect x="384" y="256" width="72" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="420" y="265" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">PROFILE HASH</text>
+
+      <!-- Agent -/- Secret files: denied at the wall -->
+      <line x1="688" y1="404" x2="862" y2="404" stroke="#1f2125" stroke-width="1.2"/>
+      <rect x="862" y="396" width="3" height="16" fill="#1f2125"/>
+      <rect x="736" y="384" width="80" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="776" y="393" fill="#1f2125" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">ALWAYS &#10007;</text>
+
+      <!-- Agent -/- Replica: raw file denied at the wall -->
+      <line x1="688" y1="500" x2="862" y2="500" stroke="#1f2125" stroke-width="1.2"/>
+      <rect x="862" y="492" width="3" height="16" fill="#1f2125"/>
+      <rect x="732" y="480" width="88" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="776" y="489" fill="#1f2125" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">RAW FILE &#10007;</text>
+
+      <!-- Agent -> Egress proxy -->
+      <path d="M664,524 V604 Q664,612 672,612 H764" fill="none" stroke="#00b0ff" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+      <rect x="672" y="556" width="48" height="12" rx="2" fill="#f7f3f4"/>
+      <text x="696" y="565" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">HTTPS</text>
+
+      <!-- Egress proxy -> Internet -->
+      <line x1="964" y1="612" x2="1012" y2="612" stroke="#00b0ff" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+
+      <!-- ================= NODES ================= -->
+
+      <!-- Runner -->
+      <rect x="72" y="180" width="240" height="56" rx="6" fill="#f7f3f4"/>
+      <rect x="72" y="180" width="240" height="56" rx="6" fill="#fefafa" stroke="#1f2125" stroke-width="1"/>
+      <rect x="80" y="186" width="40" height="12" rx="2" fill="transparent" stroke="#a5a3a5" stroke-width="0.8"/>
+      <text x="100" y="195" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CODE</text>
+      <text x="192" y="208" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Runner</text>
+      <text x="92" y="224" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">deterministic &#183; started by launchd</text>
+
+      <!-- Job script -->
+      <rect x="72" y="268" width="240" height="80" rx="6" fill="#f7f3f4"/>
+      <rect x="72" y="268" width="240" height="80" rx="6" fill="#fefafa" stroke="#1f2125" stroke-width="1"/>
+      <rect x="80" y="274" width="40" height="12" rx="2" fill="transparent" stroke="#a5a3a5" stroke-width="0.8"/>
+      <text x="100" y="283" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CODE</text>
+      <text x="192" y="300" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Job script</text>
+      <text x="92" y="316" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">log &#183; alerts &#183; evidence</text>
+      <text x="92" y="332" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">moves the digest in on success</text>
+
+      <!-- Wrapper gate -->
+      <rect x="72" y="380" width="240" height="144" rx="6" fill="#f7f3f4"/>
+      <rect x="72" y="380" width="240" height="144" rx="6" fill="#fefafa" stroke="#1f2125" stroke-width="1"/>
+      <rect x="80" y="386" width="36" height="12" rx="2" fill="transparent" stroke="#a5a3a5" stroke-width="0.8"/>
+      <text x="98" y="395" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">GATE</text>
+      <text x="192" y="412" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Wrapper gate</text>
+      <text x="92" y="436" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">1. integrity check</text>
+      <text x="92" y="452" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">2. credential refresh + expiry guard</text>
+      <text x="92" y="468" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">3. startup canary, inside</text>
+      <text x="92" y="484" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">4. the agent runs, inside</text>
+      <text x="92" y="500" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">5. connected-server check</text>
+
+      <!-- TRACE record -->
+      <rect x="72" y="580" width="240" height="64" rx="6" fill="#f7f3f4"/>
+      <rect x="72" y="580" width="240" height="64" rx="6" fill="#ece9ea" stroke="#4a5058" stroke-width="1"/>
+      <rect x="80" y="586" width="40" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
+      <text x="100" y="595" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">AUDIT</text>
+      <text x="192" y="612" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">TRACE record</text>
+      <text x="92" y="628" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">signed per session &#183; key kept outside</text>
+
+      <!-- Job manifest -->
+      <rect x="448" y="180" width="240" height="64" rx="6" fill="#f7f3f4"/>
+      <rect x="448" y="180" width="240" height="64" rx="6" fill="#ece9ea" stroke="#4a5058" stroke-width="1"/>
+      <rect x="456" y="186" width="36" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
+      <text x="474" y="195" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">FILE</text>
+      <text x="568" y="212" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Job manifest</text>
+      <text x="468" y="228" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">one per job &#183; tools &#183; hosts &#183; files</text>
+
+      <!-- Agent (focal) -->
+      <rect x="448" y="380" width="240" height="144" rx="6" fill="#f7f3f4"/>
+      <rect x="448" y="380" width="240" height="144" rx="6" fill="#ebf5f1" stroke="#10ba87" stroke-width="1"/>
+      <rect x="456" y="386" width="60" height="12" rx="2" fill="transparent" stroke="#10ba87" stroke-width="0.8"/>
+      <text x="486" y="395" fill="#1f2125" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">RUNTIME</text>
+      <text x="568" y="412" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">The agent</text>
+      <text x="468" y="432" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">one fixed, code-signed path</text>
+      <text x="468" y="448" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">one OS consent, kept across updates</text>
+      <text x="468" y="464" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">clean profile &#183; tool allowlist</text>
+      <text x="468" y="480" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">writes its digest to staging</text>
+      <text x="468" y="504" fill="#1f2125" font-size="9" font-family="'Geist Mono', monospace">e.g. inbox-digest</text>
+
+      <!-- Egress proxy: straddles the sandbox wall -->
+      <rect x="764" y="572" width="200" height="80" rx="6" fill="#f7f3f4"/>
+      <rect x="764" y="572" width="200" height="80" rx="6" fill="#fefafa" stroke="#1f2125" stroke-width="1"/>
+      <rect x="772" y="578" width="32" height="12" rx="2" fill="transparent" stroke="#a5a3a5" stroke-width="0.8"/>
+      <text x="788" y="587" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">NET</text>
+      <text x="864" y="606" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Egress proxy</text>
+      <text x="784" y="622" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">Anthropic runtime hosts</text>
+      <text x="784" y="638" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">+ the manifest's tool hosts</text>
+
+      <!-- Notes vault -->
+      <rect x="1012" y="180" width="200" height="64" rx="6" fill="#f7f3f4"/>
+      <rect x="1012" y="180" width="200" height="64" rx="6" fill="#ece9ea" stroke="#4a5058" stroke-width="1"/>
+      <rect x="1020" y="186" width="40" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
+      <text x="1040" y="195" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">DATA</text>
+      <text x="1112" y="212" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Notes vault</text>
+      <text x="1032" y="228" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">written by the job script</text>
+
+      <!-- Secret files -->
+      <rect x="1012" y="368" width="200" height="72" rx="6" fill="#f7f3f4"/>
+      <rect x="1012" y="368" width="200" height="72" rx="6" fill="#ece9ea" stroke="#4a5058" stroke-width="1"/>
+      <rect x="1020" y="374" width="56" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
+      <text x="1048" y="383" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SECRETS</text>
+      <text x="1112" y="400" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Secret files</text>
+      <text x="1032" y="416" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">keys &#183; credential files</text>
+      <text x="1032" y="430" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">signing key &#183; always denied</text>
+
+      <!-- Local mail replica -->
+      <rect x="1012" y="464" width="200" height="72" rx="6" fill="#f7f3f4"/>
+      <rect x="1012" y="464" width="200" height="72" rx="6" fill="#f1edee" stroke="#b2b0b2" stroke-width="1"/>
+      <rect x="1020" y="470" width="68" height="12" rx="2" fill="transparent" stroke="#b2b0b2" stroke-width="0.8"/>
+      <text x="1054" y="479" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">ONE DOOR</text>
+      <text x="1112" y="496" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Local mail replica</text>
+      <text x="1032" y="512" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">deterministic code</text>
+      <text x="1032" y="526" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace">+ read-only tools, only</text>
+
+      <!-- Internet -->
+      <rect x="1012" y="580" width="200" height="64" rx="6" fill="#f7f3f4"/>
+      <rect x="1012" y="580" width="200" height="64" rx="6" fill="#f1edee" stroke="#b2b0b2" stroke-width="1"/>
+      <rect x="1020" y="586" width="68" height="12" rx="2" fill="transparent" stroke="#b2b0b2" stroke-width="0.8"/>
+      <text x="1054" y="595" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXTERNAL</text>
+      <text x="1112" y="612" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Internet</text>
+      <text x="1032" y="628" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">listed hosts only &#183; else denied</text>
+
+      <!-- ================= CALLOUTS ================= -->
+      <text x="40" y="712" fill="#1f2125" font-size="14" font-style="italic" font-family="'Instrument Serif', serif">TRACE: enforcement mode moves</text>
+      <text x="40" y="728" fill="#1f2125" font-size="14" font-style="italic" font-family="'Instrument Serif', serif">from declared to enforce</text>
+      <path d="M 100,698 V 648" fill="none" stroke="#a19fa1" stroke-width="1" stroke-dasharray="4,3"/>
+      <circle cx="100" cy="646" r="2" fill="#1f2125"/>
+
+      <text x="1240" y="712" fill="#1f2125" font-size="14" font-style="italic" font-family="'Instrument Serif', serif" text-anchor="end">tool egress becomes the proxy allowlist;</text>
+      <text x="1240" y="728" fill="#1f2125" font-size="14" font-style="italic" font-family="'Instrument Serif', serif" text-anchor="end">filesystem scope is the field I propose</text>
+      <path d="M 1036,708 Q 932,708 924,656" fill="none" stroke="#a19fa1" stroke-width="1" stroke-dasharray="4,3"/>
+      <circle cx="924" cy="654" r="2" fill="#1f2125"/>
+
+      <!-- ================= LEGEND ================= -->
+      <line x1="40" y1="756" x2="1240" y2="756" stroke="#dddadb" stroke-width="0.8"/>
+      <text x="40" y="776" fill="#4a5058" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LEGEND</text>
+      <line x1="132" y1="772" x2="164" y2="772" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
+      <text x="172" y="776" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace">permitted</text>
+      <line x1="284" y1="772" x2="308" y2="772" stroke="#1f2125" stroke-width="1.2"/><rect x="310" y="764" width="3" height="16" fill="#1f2125"/>
+      <text x="320" y="776" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace">denied at the wall</text>
+      <line x1="500" y1="772" x2="532" y2="772" stroke="#00b0ff" stroke-width="1.2" marker-end="url(#arrow-link)"/>
+      <text x="540" y="776" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace">network, allowlisted</text>
+      <rect x="716" y="764" width="32" height="16" rx="3" fill="none" stroke="#10ba87" stroke-width="1" stroke-dasharray="4,4"/>
+      <text x="756" y="776" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace">sandbox boundary (kernel-enforced)</text>
+      <line x1="972" y1="772" x2="1004" y2="772" stroke="#4a5058" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
+      <text x="1012" y="776" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace">hash recorded</text>
+    </svg>

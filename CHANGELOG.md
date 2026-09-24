@@ -4,6 +4,10 @@ Notable public releases of **exo**. Date-stamped; curated (this is the forker-fa
 
 ---
 
+## [2026-09-23] — v0.1.0 — Study guide: Let AI agents run unattended without giving them the keys to your laptop
+- Source commit: b1fd03a
+
+
 ## [2026-08-01] — LANTERN skill
 
 - **New: [`skills/lantern/lantern.md`](skills/lantern/lantern.md)** — LANTERN, a teaching framework for the concepts ADEPT can't carry: spiritual, psychological, and ethical wisdom the reader's own ego resists. Seven moves in fixed order (Line → Anchor → Narrative → Turn → Enact → Ripples → Nemesis), extracted from the documented methods of Nathan, Hillel, Socrates, Aristotle, the Buddha, Jesus, Epictetus, Rumi & Shams of Tabriz, the Zen koan tradition, the Hasidim, Ignatius, Kierkegaard, Jung, Bonhoeffer, Trungpa, and Tolle. ADEPT fights complexity; LANTERN fights resistance. Introduction essay forthcoming at aaronfulkerson.com.
