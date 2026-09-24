@@ -6,70 +6,70 @@
     <marker id="arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#4a5058"/></marker>
     <marker id="arrow-accent" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#10ba87"/></marker>
   </defs>
-  <rect width="100%" height="100%" fill="#fefafa"/>
+  <rect width="100%" height="100%" fill="#f5f5f5"/>
   <text x="40" y="44" fill="#6e747c" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" letter-spacing="0.14em">EXO · SYSTEMS</text>
   <text x="40" y="76" fill="#1f2125" font-size="28" font-family="'Instrument Serif', Georgia, 'Times New Roman', serif">The knowledge base is the system.</text>
   <text x="40" y="100" fill="#4a5058" font-size="12" font-family="'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif">Surfaces come and go. Plain text on your own disk outlives every tool that reads it.</text>
   <line x1="300" y1="200" x2="300" y2="256" stroke="#4a5058" stroke-width="1" marker-end="url(#arrow)"/>
   <line x1="700" y1="200" x2="700" y2="256" stroke="#4a5058" stroke-width="1" marker-end="url(#arrow)"/>
-  <rect x="306" y="216" width="60" height="12" rx="2" fill="#fefafa"/>
+  <rect x="306" y="216" width="60" height="12" rx="2" fill="#f5f5f5"/>
   <text x="336" y="225" fill="#6e747c" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">READ+WRITE</text>
   <line x1="500" y1="360" x2="500" y2="416" stroke="#4a5058" stroke-width="1" marker-end="url(#arrow)"/>
-  <rect x="506" y="376" width="80" height="12" rx="2" fill="#fefafa"/>
+  <rect x="506" y="376" width="80" height="12" rx="2" fill="#f5f5f5"/>
   <text x="546" y="385" fill="#6e747c" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">ACCUMULATE</text>
   <path d="M 860 448 L 928 448 Q 936 448 936 440 L 936 128 Q 936 120 928 120 L 308 120 Q 300 120 300 128 L 300 136" fill="none" stroke="#10ba87" stroke-width="1" marker-end="url(#arrow-accent)"/>
-  <rect x="898" y="276" width="76" height="12" rx="2" fill="#fefafa"/>
+  <rect x="898" y="276" width="76" height="12" rx="2" fill="#f5f5f5"/>
   <text x="936" y="285" fill="#1f2125" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">RULES BACK</text>
   <line x1="180" y1="300" x2="236" y2="300" stroke="#4a5058" stroke-width="1" marker-end="url(#arrow)"/>
-  <rect x="190" y="280" width="36" height="12" rx="2" fill="#fefafa"/>
+  <rect x="190" y="280" width="36" height="12" rx="2" fill="#f5f5f5"/>
   <text x="208" y="289" fill="#6e747c" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.06em">WHO</text>
   <rect x="200" y="144" width="200" height="56" rx="6" fill="#ffffff"/>
   <rect x="200" y="144" width="200" height="56" rx="6" fill="#ffffff" stroke="#1f2125" stroke-width="1"/>
-  <rect x="208" y="152" width="44" height="12" rx="2" fill="transparent" stroke="#a5a6a8" stroke-width="0.8"/>
+  <rect x="208" y="152" width="44" height="12" rx="2" fill="transparent" stroke="#a5a3a5" stroke-width="0.8"/>
   <text x="230" y="161" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">DAILY</text>
   <text x="300" y="172" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Claude Code</text>
   <text x="300" y="188" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle">skills · commands · hooks</text>
-  <rect x="600" y="144" width="200" height="56" rx="6" fill="#faf6f6"/>
-  <rect x="600" y="144" width="200" height="56" rx="6" fill="#faf6f6" stroke="#d1cfcf" stroke-width="1" stroke-dasharray="4,3"/>
-  <rect x="608" y="152" width="36" height="12" rx="2" fill="transparent" stroke="#d1cfcf" stroke-width="0.8"/>
+  <rect x="600" y="144" width="200" height="56" rx="6" fill="#fafafa"/>
+  <rect x="600" y="144" width="200" height="56" rx="6" fill="#fafafa" stroke="#d0d0d0" stroke-width="1" stroke-dasharray="4,3"/>
+  <rect x="608" y="152" width="36" height="12" rx="2" fill="transparent" stroke="#d0d0d0" stroke-width="0.8"/>
   <text x="626" y="161" fill="#6e747c" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">LITE</text>
   <text x="700" y="172" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Claude Desktop</text>
   <text x="700" y="188" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle">MCP server</text>
-  <rect x="236" y="256" width="528" height="104" rx="6" fill="#ebf5f1"/>
-  <rect x="236" y="256" width="528" height="104" rx="6" fill="#ebf5f1" stroke="#10ba87" stroke-width="1"/>
+  <rect x="236" y="256" width="528" height="104" rx="6" fill="#e2f7f1"/>
+  <rect x="236" y="256" width="528" height="104" rx="6" fill="#e2f7f1" stroke="#10ba87" stroke-width="1"/>
   <rect x="244" y="264" width="40" height="12" rx="2" fill="transparent" stroke="#10ba87" stroke-width="0.8"/>
   <text x="264" y="273" fill="#1f2125" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">CORE</text>
   <text x="500" y="288" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">~/Exo — plain-text knowledge base</text>
   <text x="500" y="308" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle">projects · people · accounts · decisions · intel · observations</text>
   <text x="500" y="328" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle">markdown on your own disk · never leaves · outlives the tools</text>
-  <rect x="40" y="256" width="140" height="88" rx="6" fill="#f3efef"/>
-  <rect x="40" y="256" width="140" height="88" rx="6" fill="#f3efef" stroke="#4a5058" stroke-width="1"/>
-  <rect x="48" y="264" width="36" height="12" rx="2" fill="transparent" stroke="#afafb3" stroke-width="0.8"/>
+  <rect x="40" y="256" width="140" height="88" rx="6" fill="#f8f8f8"/>
+  <rect x="40" y="256" width="140" height="88" rx="6" fill="#f8f8f8" stroke="#4a5058" stroke-width="1"/>
+  <rect x="48" y="264" width="36" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
   <text x="66" y="273" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">SUB</text>
   <text x="110" y="288" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">exo-mesh</text>
   <text x="110" y="308" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle">mail · calendar</text>
   <text x="110" y="324" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle">iMessage · contacts</text>
   <rect x="360" y="416" width="280" height="64" rx="6" fill="#ffffff"/>
   <rect x="360" y="416" width="280" height="64" rx="6" fill="#ffffff" stroke="#1f2125" stroke-width="1"/>
-  <rect x="368" y="424" width="52" height="12" rx="2" fill="transparent" stroke="#a5a6a8" stroke-width="0.8"/>
+  <rect x="368" y="424" width="52" height="12" rx="2" fill="transparent" stroke="#a5a3a5" stroke-width="0.8"/>
   <text x="394" y="433" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">WEEKLY</text>
   <text x="500" y="444" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Review what accumulated</text>
   <text x="500" y="460" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle">you approve what survives</text>
-  <rect x="700" y="416" width="160" height="64" rx="6" fill="#ebf5f1"/>
-  <rect x="700" y="416" width="160" height="64" rx="6" fill="#ebf5f1" stroke="#10ba87" stroke-width="1"/>
+  <rect x="700" y="416" width="160" height="64" rx="6" fill="#e2f7f1"/>
+  <rect x="700" y="416" width="160" height="64" rx="6" fill="#e2f7f1" stroke="#10ba87" stroke-width="1"/>
   <rect x="708" y="424" width="44" height="12" rx="2" fill="transparent" stroke="#10ba87" stroke-width="0.8"/>
   <text x="730" y="433" fill="#1f2125" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle" letter-spacing="0.08em">RULES</text>
   <text x="780" y="444" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', -apple-system, 'Helvetica Neue', Arial, sans-serif" text-anchor="middle">Rules layer</text>
   <text x="780" y="460" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" text-anchor="middle">fires every session</text>
   <line x1="640" y1="448" x2="700" y2="448" stroke="#4a5058" stroke-width="1" marker-end="url(#arrow)"/>
-  <line x1="40" y1="532" x2="960" y2="532" stroke="#e8e4e5" stroke-width="0.8"/>
+  <line x1="40" y1="532" x2="960" y2="532" stroke="#dddadb" stroke-width="0.8"/>
   <text x="40" y="556" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace" letter-spacing="0.14em">LEGEND</text>
-  <rect x="140" y="548" width="12" height="12" rx="2" fill="#ebf5f1" stroke="#10ba87" stroke-width="1"/>
+  <rect x="140" y="548" width="12" height="12" rx="2" fill="#e2f7f1" stroke="#10ba87" stroke-width="1"/>
   <text x="160" y="556" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace">what compounds</text>
-  <rect x="340" y="548" width="12" height="12" rx="2" fill="#f3efef" stroke="#4a5058" stroke-width="1"/>
+  <rect x="340" y="548" width="12" height="12" rx="2" fill="#f8f8f8" stroke="#4a5058" stroke-width="1"/>
   <text x="360" y="556" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace">subsystem (own repo)</text>
   <rect x="560" y="548" width="12" height="12" rx="2" fill="#ffffff" stroke="#1f2125" stroke-width="1"/>
   <text x="580" y="556" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace">surface / step</text>
-  <rect x="760" y="548" width="12" height="12" rx="2" fill="#faf6f6" stroke="#d1cfcf" stroke-width="1" stroke-dasharray="3,2"/>
+  <rect x="760" y="548" width="12" height="12" rx="2" fill="#fafafa" stroke="#d0d0d0" stroke-width="1" stroke-dasharray="3,2"/>
   <text x="780" y="556" fill="#4a5058" font-size="8" font-family="'Geist Mono', ui-monospace, 'SF Mono', Menlo, monospace">optional surface</text>
 </svg>
