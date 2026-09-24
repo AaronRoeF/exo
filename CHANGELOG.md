@@ -4,6 +4,10 @@ Notable public releases of **exo**. Date-stamped; curated (this is the forker-fa
 
 ---
 
+## [2026-09-24] — Diagrams in the OPAQUE palette; the governance guide linked from the README
+- The systems, subsystems and capability-graph diagrams use the OPAQUE diagram profile's node types; the capability graph's generator changed with them.
+- The README links [Building verifiable security and governance into AI agents](docs/study-guide-governed-agents.md) under the governance note, from the audit-trail section, and in the docs list.
+
 ## [2026-09-23] — v0.1.0 — Study guide: Let AI agents run unattended without giving them the keys to your laptop
 - Source commit: b1fd03a
 

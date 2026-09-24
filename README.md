@@ -43,6 +43,10 @@ CEO, OPAQUE Systems · Co-founder, MindTouch
 
 I'm leaving out big parts of my implementation because I'm not interested in disclosing all the specifics of my security and governance setup. You can see parts of what I'm doing here: agentrust-io.com if you're interested. And generally assume this is a project I'm sharing, not a product. I hope you get value. Enjoy! 
 
+> **[Building verifiable security and governance into AI agents](docs/study-guide-governed-agents.md).** How the agents that run unattended on my Mac are governed: an Agent Manifest
+> writes each agent's rules, a kernel sandbox enforces them, and TRACE leaves a signed record of
+> every run.
+
 ---
 
 ## How it works
@@ -157,6 +161,8 @@ The pitch isn't novelty. It's craft, discipline, and composition.
 
 **Privacy:** local-first. Records are written only to local files (`~/Exo/trace/`) — no network, no telemetry. They capture tool-call metadata, so review what's logged in [`docs/trace-audit.md`](docs/trace-audit.md) before enabling on sensitive work. Honest about hardware, too: a laptop has no silicon root of trust, so records are marked `runtime.platform = "software-only"` and can never be mistaken for hardware-rooted evidence.
 
+**Going further:** [Building verifiable security and governance into AI agents](docs/study-guide-governed-agents.md) binds these signed records to a kernel sandbox the agent cannot leave, one record per run.
+
 _Contributed by Imran Siddique._
 
 ---
@@ -183,6 +189,7 @@ Each of these stands alone. You do not need any of them to run Exo.
 - [`docs/hardening-doctrine.md`](docs/hardening-doctrine.md) — four rules that keep a learning loop alive, taught by a real 31-day silent outage.
 - [`docs/customization.md`](docs/customization.md) — swap the personality, add MCPs, opt-in power surfaces.
 - [`docs/trace-audit.md`](docs/trace-audit.md) — opt-in signed, tamper-evident audit log of agent actions, in the open TRACE format.
+- [`docs/study-guide-governed-agents.md`](docs/study-guide-governed-agents.md) — building verifiable security and governance into AI agents: Agent Manifest, a kernel sandbox and TRACE, applied to agents that run unattended.
 - [`docs/wizard.md`](docs/wizard.md) — the setup wizard in detail.
 
 ## Contributing
