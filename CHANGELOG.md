@@ -4,6 +4,10 @@ Notable public releases of **exo**. Date-stamped; curated (this is the forker-fa
 
 ---
 
+## [2026-09-24] — v0.1.2 — The governed-agents guide qualifies its enforcement and evidence claims after Imran Siddique's review (PR #3): three enforcers named separately, the canary tests rather than proves, reads are default-allow outside the denylist, and Appendix B is pinned to current spec revisions
+- Source commit: a987470
+
+
 ## [2026-09-24] — v0.1.1 — The governed-agents guide says the scripts keep their direct grant and the sandbox stands between an agent and those files (ADR-0071); its diagrams use the standard palette
 - Source commit: 0c3c300
 
