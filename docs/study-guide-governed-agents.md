@@ -26,16 +26,19 @@ ordinary scripts. Some are Claude Code agents running headless, with no human in
 let the scripts read protected data, I gave the shell that starts every job Full Disk Access,
 the broadest permission macOS has. That grant also gave every affected script substantial authority. Then I added an agent
 that reads my inbound email, and I never revisited the grant. In my tested Claude Code launch path, the agent did not inherit that grant. An agent built directly on a model
-API and started by the same shell would have. Every session wrote to a hash-chained audit log.
+API and started by the same shell could inherit broader access, depending on how macOS attributes
+that launch. Every session wrote to a hash-chained audit log.
 
 When I looked at that setup the way an attacker would, I found four risks:
 
 1. **Strangers write the agent's instructions.** Anyone who can email me can try to steer the
    agent that reads my email, and it's possible that a steered agent sends what it read to any
    host on the internet.
-2. **The agent could read and rewrite what I can.** My keys, cloud credentials, local mail
-   archive, messaging apps, and the agent's own configuration are ordinary files that macOS
-   doesn't guard, so a steered agent could steal them or plant instructions the next session would obey.
+2. **Ordinary user files had no job-specific boundary.** Keys, cloud credential files, the local
+   mail replica and agent configuration can be readable by processes running as me without a
+   separate app-consent prompt. Protected app data, such as Messages, has additional macOS
+   controls. A steered agent could target the files it can access or plant instructions for a
+   later session wherever it can write.
 3. **Permissions were tied to programs.** The shell's broad grant reached every script it
    started, and each update to the agent runtime arrived at a new file path with none of its
    own permissions, which hung jobs on prompts nobody was there to answer and made a bigger
