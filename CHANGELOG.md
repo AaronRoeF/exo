@@ -4,6 +4,10 @@ Notable public releases of **exo**. Date-stamped; curated (this is the forker-fa
 
 ---
 
+## [2026-09-24] — v0.1.1 — The governed-agents guide says the scripts keep their direct grant and the sandbox stands between an agent and those files (ADR-0071); its diagrams use the standard palette
+- Source commit: 0c3c300
+
+
 ## [2026-09-24] — Diagrams in the OPAQUE palette; the governance guide linked from the README
 - The systems, subsystems and capability-graph diagrams use the OPAQUE diagram profile's node types; the capability graph's generator changed with them.
 - The README links [Building verifiable security and governance into AI agents](docs/study-guide-governed-agents.md) under the governance note, from the audit-trail section, and in the docs list.

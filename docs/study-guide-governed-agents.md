@@ -63,8 +63,8 @@ Agent Manifest and TRACE are open specifications from AgenTrust, an open ecosyst
 verifiable AI agent governance.
 
 The sandbox and its single network door close the first two risks. A fixed, signature-checked
-home for the agent runtime, plus narrow grants for the scripts, closes the third. TRACE closes
-the fourth.
+home for the agent runtime closes the third. The scripts keep their direct grant, and the
+sandbox, not the grant, stands between an agent and those files. TRACE closes the fourth.
 
 ### Analogy: a permission slip and a locked room
 

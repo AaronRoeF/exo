@@ -9,7 +9,7 @@
         <marker id="arrow-ink" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#1f2125"/></marker>
       </defs>
 
-      <rect width="100%" height="100%" fill="#f7f3f4"/>
+      <rect width="100%" height="100%" fill="#f5f5f5"/>
 
       <!-- header -->
       <text x="40" y="44" fill="#6e747c" font-size="8" font-family="'Geist Mono', monospace" letter-spacing="0.14em">ARCHITECTURE &#183; MY FIRST PROTOTYPE</text>
@@ -18,85 +18,85 @@
 
       <!-- ================= ZONES (drawn before arrows and nodes) ================= -->
       <!-- Zone A: scheduled job -->
-      <rect x="40" y="140" width="304" height="332" rx="8" fill="#f3eff0" stroke="#e1dedf" stroke-width="0.8"/>
-      <rect x="52" y="144" width="280" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="40" y="140" width="304" height="332" rx="8" fill="#fefafa" stroke="#d9d9d9" stroke-width="0.8"/>
+      <rect x="52" y="144" width="280" height="12" rx="2" fill="#fefafa"/>
       <text x="192" y="153" fill="#a19fa1" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.10em">SCHEDULED JOB &#183; SHELL HOLDS BROAD DISK ACCESS</text>
 
       <!-- Zone C: data and world -->
-      <rect x="936" y="140" width="304" height="560" rx="8" fill="#f3eff0" stroke="#e1dedf" stroke-width="0.8"/>
-      <rect x="988" y="144" width="200" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="936" y="140" width="304" height="560" rx="8" fill="#fefafa" stroke="#d9d9d9" stroke-width="0.8"/>
+      <rect x="988" y="144" width="200" height="12" rx="2" fill="#fefafa"/>
       <text x="1088" y="153" fill="#a19fa1" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.10em">DATA &amp; INTERNET &#183; ONLY GATE IS OS CONSENT</text>
 
       <!-- ================= ARROWS (before boxes) ================= -->
 
       <!-- Shell -> Scripts: inherits the grant -->
       <line x1="192" y1="252" x2="192" y2="372" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
-      <rect x="200" y="300" width="96" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="200" y="300" width="96" height="12" rx="2" fill="#fefafa"/>
       <text x="248" y="309" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">INHERITS GRANT</text>
 
       <!-- Shell -> Agent: spawn (straight, matched centers) -->
       <line x1="312" y1="220" x2="488" y2="220" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
-      <rect x="368" y="200" width="64" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="368" y="200" width="64" height="12" rx="2" fill="#f5f5f5"/>
       <text x="400" y="209" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">SPAWN</text>
 
       <!-- Scripts -> Messages/Notes: the shell's grant reaches it too (one trunk, bottom corridor, line-jump over the audit line) -->
       <path d="M192,436 V664 Q192,672 200,672 H612 a8,8 0 0,1 16,0 H1208 Q1216,672 1216,664 V276 Q1216,268 1208,268" fill="none" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
-      <rect x="340" y="652" width="96" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="340" y="652" width="96" height="12" rx="2" fill="#f5f5f5"/>
       <text x="388" y="661" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">REACHES TOO</text>
 
       <!-- Agent -> Vault: permitted -->
       <line x1="768" y1="192" x2="936" y2="192" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
-      <rect x="816" y="172" width="64" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="816" y="172" width="64" height="12" rx="2" fill="#f5f5f5"/>
       <text x="848" y="181" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">VAULT &#10003;</text>
 
       <!-- Agent -/- Messages/Notes: denied at the zone wall, in line with that node -->
-      <line x1="768" y1="268" x2="932" y2="268" stroke="#1f2125" stroke-width="1.2"/>
-      <rect x="932" y="260" width="3" height="16" fill="#1f2125"/>
-      <rect x="804" y="248" width="88" height="12" rx="2" fill="#f7f3f4"/>
+      <line x1="768" y1="268" x2="932" y2="268" stroke="#e1765a" stroke-width="1.2"/>
+      <rect x="932" y="260" width="3" height="16" fill="#e1765a"/>
+      <rect x="804" y="248" width="88" height="12" rx="2" fill="#f5f5f5"/>
       <text x="848" y="257" fill="#1f2125" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">DENIED &#10007;</text>
 
       <!-- Agent -> Mail replica: no check at all (the hole) -->
       <path d="M744,284 V396 Q744,404 752,404 H936" fill="none" stroke="#1f2125" stroke-width="1.6" marker-end="url(#arrow-ink)"/>
-      <rect x="812" y="384" width="64" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="812" y="384" width="64" height="12" rx="2" fill="#f5f5f5"/>
       <text x="844" y="393" fill="#1f2125" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">NO CHECK</text>
 
       <!-- Agent -> Internet: any host -->
       <path d="M712,284 V612 Q712,620 720,620 H936" fill="none" stroke="#00b0ff" stroke-width="1.2" marker-end="url(#arrow-link)"/>
-      <rect x="796" y="600" width="64" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="796" y="600" width="64" height="12" rx="2" fill="#f5f5f5"/>
       <text x="828" y="609" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">ANY HOST</text>
 
 
       <!-- Agent -> Keys, credentials, agent config: ordinary files, read and write, no check -->
       <path d="M728,284 V500 Q728,508 736,508 H936" fill="none" stroke="#1f2125" stroke-width="1.6" marker-end="url(#arrow-ink)"/>
-      <rect x="796" y="488" width="96" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="796" y="488" width="96" height="12" rx="2" fill="#f5f5f5"/>
       <text x="844" y="497" fill="#1f2125" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">READS &#183; WRITES</text>
 
       <!-- Agent -> Audit: aligned, never evaluated (dashed, straight) -->
       <line x1="620" y1="284" x2="620" y2="704" stroke="#4a5058" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arrow)"/>
-      <rect x="628" y="456" width="72" height="12" rx="2" fill="#f7f3f4"/>
+      <rect x="628" y="456" width="72" height="12" rx="2" fill="#f5f5f5"/>
       <text x="664" y="465" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.06em">DECLARED</text>
 
       <!-- ================= NODES ================= -->
 
       <!-- Shell (broad disk access) -->
-      <rect x="72" y="188" width="240" height="64" rx="6" fill="#f7f3f4"/>
-      <rect x="72" y="188" width="240" height="64" rx="6" fill="#fefafa" stroke="#1f2125" stroke-width="1"/>
+      <rect x="72" y="188" width="240" height="64" rx="6" fill="#ffffff"/>
+      <rect x="72" y="188" width="240" height="64" rx="6" fill="#ffffff" stroke="#1f2125" stroke-width="1"/>
       <rect x="80" y="194" width="52" height="12" rx="2" fill="transparent" stroke="#a5a3a5" stroke-width="0.8"/>
       <text x="106" y="203" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">SHELL</text>
       <text x="192" y="222" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Shell</text>
       <text x="92" y="238" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">started by the scheduler (e.g. launchd)</text>
 
       <!-- Deterministic scripts -->
-      <rect x="72" y="372" width="240" height="64" rx="6" fill="#f7f3f4"/>
-      <rect x="72" y="372" width="240" height="64" rx="6" fill="#ece9ea" stroke="#4a5058" stroke-width="1"/>
+      <rect x="72" y="372" width="240" height="64" rx="6" fill="#f8f8f8"/>
+      <rect x="72" y="372" width="240" height="64" rx="6" fill="#f8f8f8" stroke="#4a5058" stroke-width="1"/>
       <rect x="80" y="378" width="44" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
       <text x="102" y="387" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">CODE</text>
       <text x="192" y="406" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Deterministic scripts</text>
       <text x="92" y="422" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">inherits the shell's grant</text>
 
       <!-- Agent (focal) -->
-      <rect x="488" y="156" width="280" height="128" rx="6" fill="#f7f3f4"/>
-      <rect x="488" y="156" width="280" height="128" rx="6" fill="#ebf5f1" stroke="#10ba87" stroke-width="1"/>
+      <rect x="488" y="156" width="280" height="128" rx="6" fill="#e2f7f1"/>
+      <rect x="488" y="156" width="280" height="128" rx="6" fill="#e2f7f1" stroke="#10ba87" stroke-width="1"/>
       <rect x="496" y="162" width="60" height="12" rx="2" fill="transparent" stroke="#10ba87" stroke-width="0.8"/>
       <text x="526" y="171" fill="#1f2125" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">RUNTIME</text>
       <text x="628" y="196" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">The agent</text>
@@ -106,49 +106,49 @@
       <text x="508" y="264" fill="#1f2125" font-size="9" font-family="'Geist Mono', monospace">e.g. inbox-digest</text>
 
       <!-- Notes vault -->
-      <rect x="968" y="164" width="240" height="56" rx="6" fill="#f7f3f4"/>
-      <rect x="968" y="164" width="240" height="56" rx="6" fill="#ece9ea" stroke="#4a5058" stroke-width="1"/>
+      <rect x="968" y="164" width="240" height="56" rx="6" fill="#f8f8f8"/>
+      <rect x="968" y="164" width="240" height="56" rx="6" fill="#f8f8f8" stroke="#4a5058" stroke-width="1"/>
       <rect x="976" y="170" width="32" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
       <text x="992" y="179" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">OS</text>
       <text x="1088" y="192" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Notes vault</text>
       <text x="988" y="208" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">agent holds this consent</text>
 
       <!-- Messages / Notes -->
-      <rect x="968" y="240" width="240" height="56" rx="6" fill="#f7f3f4"/>
-      <rect x="968" y="240" width="240" height="56" rx="6" fill="#ece9ea" stroke="#4a5058" stroke-width="1"/>
+      <rect x="968" y="240" width="240" height="56" rx="6" fill="#f8f8f8"/>
+      <rect x="968" y="240" width="240" height="56" rx="6" fill="#f8f8f8" stroke="#4a5058" stroke-width="1"/>
       <rect x="976" y="246" width="32" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
       <text x="992" y="255" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">OS</text>
       <text x="1088" y="268" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Messages, Notes</text>
       <text x="988" y="284" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">denied to the agent &#183; open to scripts</text>
 
       <!-- Mail replica -->
-      <rect x="968" y="372" width="240" height="64" rx="6" fill="#f7f3f4"/>
-      <rect x="968" y="372" width="240" height="64" rx="6" fill="#f1edee" stroke="#b2b0b2" stroke-width="1"/>
-      <rect x="976" y="378" width="80" height="12" rx="2" fill="transparent" stroke="#b2b0b2" stroke-width="0.8"/>
+      <rect x="968" y="372" width="240" height="64" rx="6" fill="#f8f8f8"/>
+      <rect x="968" y="372" width="240" height="64" rx="6" fill="#f8f8f8" stroke="#4a5058" stroke-width="1"/>
+      <rect x="976" y="378" width="80" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
       <text x="1016" y="387" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">UNGUARDED</text>
       <text x="1088" y="406" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Local mail replica</text>
       <text x="988" y="422" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">no permission check of any kind</text>
 
       <!-- Keys, credentials, agent config -->
-      <rect x="968" y="468" width="240" height="80" rx="6" fill="#f7f3f4"/>
-      <rect x="968" y="468" width="240" height="80" rx="6" fill="#f1edee" stroke="#b2b0b2" stroke-width="1"/>
-      <rect x="976" y="474" width="80" height="12" rx="2" fill="transparent" stroke="#b2b0b2" stroke-width="0.8"/>
+      <rect x="968" y="468" width="240" height="80" rx="6" fill="#f8f8f8"/>
+      <rect x="968" y="468" width="240" height="80" rx="6" fill="#f8f8f8" stroke="#4a5058" stroke-width="1"/>
+      <rect x="976" y="474" width="80" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
       <text x="1016" y="483" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">UNGUARDED</text>
       <text x="1088" y="508" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Keys, credentials, agent config</text>
       <text x="988" y="524" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">ordinary files, no check</text>
       <text x="988" y="540" fill="#1f2125" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">writes a hook &#8594; next session runs it</text>
 
       <!-- Internet -->
-      <rect x="968" y="588" width="240" height="64" rx="6" fill="#f7f3f4"/>
-      <rect x="968" y="588" width="240" height="64" rx="6" fill="#f1edee" stroke="#b2b0b2" stroke-width="1"/>
-      <rect x="976" y="594" width="68" height="12" rx="2" fill="transparent" stroke="#b2b0b2" stroke-width="0.8"/>
+      <rect x="968" y="588" width="240" height="64" rx="6" fill="#f9f1e9"/>
+      <rect x="968" y="588" width="240" height="64" rx="6" fill="#f9f1e9" stroke="#a6834e" stroke-width="1"/>
+      <rect x="976" y="594" width="68" height="12" rx="2" fill="transparent" stroke="#a6834e" stroke-width="0.8"/>
       <text x="1010" y="603" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">EXTERNAL</text>
       <text x="1088" y="622" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Internet</text>
       <text x="988" y="638" fill="#4a5058" font-size="9" font-family="'Geist Mono', monospace" text-anchor="start">any host, no allowlist</text>
 
       <!-- Audit log -->
-      <rect x="500" y="704" width="280" height="56" rx="6" fill="#f7f3f4"/>
-      <rect x="500" y="704" width="280" height="56" rx="6" fill="#ece9ea" stroke="#4a5058" stroke-width="1"/>
+      <rect x="500" y="704" width="280" height="56" rx="6" fill="#f8f8f8"/>
+      <rect x="500" y="704" width="280" height="56" rx="6" fill="#f8f8f8" stroke="#4a5058" stroke-width="1"/>
       <rect x="508" y="710" width="40" height="12" rx="2" fill="transparent" stroke="#abacb0" stroke-width="0.8"/>
       <text x="528" y="719" fill="#4a5058" font-size="7" font-family="'Geist Mono', monospace" text-anchor="middle" letter-spacing="0.08em">AUDIT</text>
       <text x="640" y="732" fill="#1f2125" font-size="12" font-weight="600" font-family="'Geist', sans-serif" text-anchor="middle">Audit log</text>
@@ -168,7 +168,7 @@
       <text x="40" y="796" fill="#4a5058" font-size="8" font-weight="500" font-family="'Geist Mono', monospace" letter-spacing="0.14em">LEGEND</text>
       <line x1="132" y1="792" x2="164" y2="792" stroke="#4a5058" stroke-width="1.2" marker-end="url(#arrow)"/>
       <text x="172" y="796" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace">permitted</text>
-      <line x1="284" y1="792" x2="308" y2="792" stroke="#1f2125" stroke-width="1.2"/><rect x="310" y="784" width="3" height="16" fill="#1f2125"/>
+      <line x1="284" y1="792" x2="308" y2="792" stroke="#e1765a" stroke-width="1.2"/><rect x="310" y="784" width="3" height="16" fill="#e1765a"/>
       <text x="320" y="796" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace">denied at the wall</text>
       <line x1="500" y1="792" x2="532" y2="792" stroke="#1f2125" stroke-width="1.6" marker-end="url(#arrow-ink)"/>
       <text x="540" y="796" fill="#4a5058" font-size="8" font-family="'Geist Mono', monospace">open path, no check</text>
