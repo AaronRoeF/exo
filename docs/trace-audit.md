@@ -1,5 +1,7 @@
 # TRACE audit hook
 
+**Retired 2026-09-24.** This page described `hooks/exo-trace-audit.py`, a per-action hook that emitted a TRACE v0.1 profile; the current TRACE v0.2 SDK rejects that profile, and the file is removed from this mirror. It was replaced by a per-session recorder that signs one TRACE v0.2 record per sandboxed run; that recorder is part of the private fleet runner and is not published here. The description below is kept for history.
+
 > **WIFM:** Every risky thing your agent does gets a signed receipt you (or an auditor) can verify later, without trusting Anthropic, this machine, or Exo.
 
 This is an opt-in power surface. Off by default. It does not block or change any action, and it sends nothing anywhere. It writes a local, tamper-evident log of what your agent did.

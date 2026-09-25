@@ -151,9 +151,9 @@ The pitch isn't novelty. It's craft, discipline, and composition.
 
 **What you get:** a tamper-evident record of what the agent actually did — what ran, under which policy, touching which data class — that *anyone* can verify, not just Exo's own code. Edit a record or drop one and verification visibly fails. That turns "trust me, the agent behaved" into "here's the signed proof."
 
-**How it works:** an opt-in `PostToolUse` hook ([`hooks/exo-trace-audit.py`](hooks/exo-trace-audit.py)) writes one signed, hash-chained record per tool call in the open **[TRACE v0.1](https://trace.agentrust-io.com)** format — an interoperable agent-governance standard from **[AgenTrust-io](https://github.com/agentrust-io)**. Records are Ed25519-signed and chained: edit any field or drop any record and the chain breaks visibly.
+**How it works:** the opt-in per-action `PostToolUse` hook this section once described (`hooks/exo-trace-audit.py`, TRACE v0.1) is retired and removed from this mirror as of 2026-09-24; see [docs/trace-audit.md](docs/trace-audit.md). The current recorder signs one **[TRACE v0.2](https://trace.agentrust-io.com)** record per sandboxed agent session, an interoperable agent-governance format from **[AgenTrust-io](https://github.com/agentrust-io)**; that recorder is part of the private fleet runner and is not published here.
 
-**The dependency, called out plainly:** this feature — and *only* this feature — uses the upstream **`agentrust-trace`** library (`pip install agentrust-trace`) for the record schema and signing, so records are real, conformant TRACE that verify with any TRACE-conformant tooling instead of a home-grown scheme. **Nothing else in Exo depends on it.**
+**The dependency, called out plainly:** the private recorder uses the upstream **`agentrust-trace`** library for the record schema and signing, so its records verify with any TRACE-conformant tooling. Nothing in this mirror depends on it.
 
 **It is OFF by default.**
 - **To opt out — which is the default:** do nothing. Don't install the library and don't wire the hook; Exo runs exactly as before. If the hook is wired but the library isn't installed, it no-ops cleanly. Nothing is ever logged unless you turn it on.
