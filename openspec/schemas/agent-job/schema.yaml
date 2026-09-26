@@ -206,6 +206,12 @@ artifacts:
         not read directly, and write_allow for the job's staging directory
         only. Never a path a later session reads instructions from (hooks,
         settings, plugins, tool-server lists).
+      - if write_allow is not empty, the job's unattended output leaves
+        staging only through `exo-fleet-accept move <staged> <destination>`
+        (evidence-gates-output, board 1.14.2) — never a plain mv or an
+        editor-style rename; the gate refuses a staged symlink or a
+        second-hard-linked file outright, so a mover built on it need not
+        re-check either.
 
       At implementation, tasks copy this file to configs/manifests/<job>.json and
       render it with bin/exo-fleet-manifest render <job>; the specs must include
