@@ -4,6 +4,10 @@ Notable public releases of **exo**. Date-stamped; curated (this is the forker-fa
 
 ---
 
+## [2026-09-25] — v0.1.3 — The governed-agents study guide now matches the build: the TRACE enforcement mode records the policy in force (always enforce inside the sandbox); controls, checks, evidence integrity and refusals move to a signed companion report bound to each record; a missing or tampered evidence chain fails the governed-run proof.
+- Source commit: f969c03
+
+
 ## [2026-09-24] — v0.1.2 — The governed-agents guide qualifies its enforcement and evidence claims after Imran Siddique's review (PR #3): three enforcers named separately, the canary tests rather than proves, reads are default-allow outside the denylist, and Appendix B is pinned to current spec revisions
 - Source commit: a987470
 

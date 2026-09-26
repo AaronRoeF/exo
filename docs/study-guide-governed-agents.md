@@ -156,11 +156,13 @@ every reply myself.
 
 After the run, the runner writes the TRACE record and a hash of the tool calls its recorder
 observed. `enforce` describes a policy that was evaluated and blocked denied operations; passing
-the canary alone does not establish that every declared control was enforced. My current runner
-uses `advisory` when a post-run check fails, but that is a deployment convention needing revision:
-TRACE uses `advisory` for policy evaluated and logged without blocking. Evidence corruption needs
-a separate integrity result, not a change to the enforcement mode. If the canary fails, no agent
-session starts; retain a separate refusal event so the attempt remains accountable.
+the canary alone does not establish that every declared control was enforced. My runner now
+writes `enforce` on every record — a property of the policy in force, never of that session's
+own outcome: TRACE's `advisory` means a policy evaluated, logged and allowed, which was never an
+honest description of a post-run finding or a corrupted log. Evidence corruption, and which
+controls were actually in force, each get their own result, in a signed companion report bound
+to the record by digest, not folded into the enforcement mode. If the canary fails, no agent
+session starts; a signed refusal report keeps the attempt accountable.
 
 ### Plain English
 
@@ -446,9 +448,10 @@ The agent settings carry the tool-call recorder hook, matched to the manifest's 
 ### The run sequence
 
 A wrapper outside the sandbox runs twelve steps, each gating the next. A refusal exits 5. A failed
-server check after the agent has run exits 6. The `advisory` mappings below describe my current
-runner; Appendix B.3 explains why they should not be treated as TRACE integrity semantics. Any status other than ok, except a bad job name,
-writes one alarm line.
+server check after the agent has run exits 6. The table below names each step's status; a
+post-run finding no longer maps to `advisory` (Appendix B.3 explains why that would have
+conflated TRACE integrity semantics) — the record stays `enforce` and a signed companion report
+carries the finding. Any status other than ok, except a bad job name, writes one alarm line.
 
 | Step | Where | What | On failure |
 |---|---|---|---|
@@ -461,8 +464,8 @@ writes one alarm line.
 | 7 | Outside | Plant the canary file in the signing-key directory | Refuse (5) |
 | 8 | Inside | Startup canary, five checks | Refuse (5) |
 | 9 | Inside | The agent runs with the rendered flags | The agent's own exit code |
-| 10 | Outside | Tamper check: no evidence path became a symlink | Refuse (5); record says `advisory` |
-| 11 | Outside | Connected-server check: exactly the manifest's servers connected; a new one goes on the shared deny list | Exit 6; record says `advisory` |
+| 10 | Outside | Tamper check: no evidence path became a symlink | Refuse (5); the record says `enforce`, the companion report says `tampered` |
+| 11 | Outside | Connected-server check: exactly the manifest's servers connected; a new one goes on the shared deny list | Exit 6; the record says `enforce`, the companion report names the check and its detail |
 | 12 | Outside | Append one session line; the runner then writes the TRACE record | Alarm line; job result unchanged |
 
 A run refused at steps 1 to 8 never started the agent and leaves no TRACE record. The wrapper's own
@@ -723,11 +726,14 @@ nor the job would have started. A one-time test of the domain allowlist says not
 next release. So the design runs a startup canary inside the sandbox before every run, with the
 five checks described in the main guide, and any failure stops the run before the agent starts.
 
-My runner currently maps passing checks to `enforce` and post-run failures to `advisory`.
-That conflates enforcement, observation and integrity. A detected unapproved connector is a
-coverage violation; a substituted log is an evidence-integrity failure. Neither proves that
-the named policy was evaluated in advisory mode. A run the canary refused gets no record, because no agent
-ran. A canary running as its own process inside the sandbox can test selected sandbox and proxy rules.
+My runner now writes `enforce` on every record — a property of the policy in force, not a
+mapping from passing checks. That resolves the conflation of enforcement, observation and
+integrity: a detected unapproved connector is a coverage violation; a substituted log is an
+evidence-integrity failure. Neither is folded into the enforcement mode — each is its own named
+result in a signed companion report bound to the record by digest. A run the canary refused
+still gets no TRACE record, because no agent ran, but now leaves its own signed refusal report,
+so the attempt stays accountable. A canary running as its own process inside the sandbox can
+test selected sandbox and proxy rules.
 It can't see the harness's tool controls (the flag that removes unlisted tools, the setting that
 denies unused servers by name), which live inside the agent's own process, yet the profile hash a
 record commits to covers them.
@@ -922,10 +928,11 @@ content_trust: untrusted
 The sandbox-runtime note already hashes arbitrary policy bytes. My hash covers the rendered
 sandbox profile. A declared bundle type would tell a verifier what to fetch and recompute.
 Separately, a producer can detect that its own evidence was tampered with, such as a session log
-swapped for a link during the run, and the schema's closed top level has no field for it; my current design
-reports it as `advisory`, which conflates two distinct results. Define a separate integrity
-result and consumer rejection rule, with a versioned companion format until the schema defines
-one. Do not describe a corrupted transcript as valid advisory evidence.
+swapped for a link during the run, and the schema's closed top level has no field for it; my
+design now reports it as its own integrity result in a signed, versioned companion report bound
+to the record by digest, never as the enforcement mode. The record itself binds nothing when a
+session's own evidence is tampered, and the governed-run proof rejects it as unproven rather than
+describing a corrupted transcript as valid evidence.
 
 **Beyond a laptop.** Software-only records are useful when recipients can authenticate the issuer and recompute
 the documented commitments. That does not require claiming hardware assurance or assuming all
