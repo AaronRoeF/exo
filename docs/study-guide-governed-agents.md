@@ -447,29 +447,36 @@ The agent settings carry the tool-call recorder hook, matched to the manifest's 
 
 ### The run sequence
 
-A wrapper outside the sandbox runs twelve steps, each gating the next. A refusal exits 5. A failed
+A wrapper outside the sandbox runs fourteen steps, each gating the next. A refusal exits 5. A failed
 server check after the agent has run exits 6. The table below names each step's status; a
 post-run finding no longer maps to `advisory` (Appendix B.3 explains why that would have
 conflated TRACE integrity semantics) — the record stays `enforce` and a signed companion report
 carries the finding. Any status other than ok, except a bad job name, writes one alarm line.
+Since v0.1.5 a refusal's detail reads cause first, then the failing tool's own last output line,
+then the path, identically in the session line and the alarm line, so the next refusal nobody is
+watching still says why; a socket path over the operating system's limit is refused before any
+bind is attempted.
 
 | Step | Where | What | On failure |
 |---|---|---|---|
 | 1 | Outside | Validate the job name | Exit 5, no files, no alarm |
 | 2 | Outside | Preconditions: profile rendered, sandbox runtime and fixed path executable, no symlinked run path | Refuse (5) |
-| 3 | Outside | Flag gate: pass through only `-p`, `--print`, `--verbose`, `--max-turns`, `--disallowedTools`, `--output-format` and the prompt, so a job script can't widen the tool set | Refuse (5) |
-| 4 | Outside | Integrity check: hooks, settings and policy match a signed baseline | Refuse (5) |
-| 5 | Outside | Preflight: a single-turn call with no tools; a due token refresh is saved here | Refuse (5) |
-| 6 | Outside | Token guard: defer if less than the job's timeout plus 5 minutes remains | Refuse (5) |
-| 7 | Outside | Plant the canary file in the signing-key directory | Refuse (5) |
-| 8 | Inside | Startup canary, five checks | Refuse (5) |
-| 9 | Inside | The agent runs with the rendered flags | The agent's own exit code |
-| 10 | Outside | Tamper check: no evidence path became a symlink | Refuse (5); the record says `enforce`, the companion report says `tampered` |
-| 11 | Outside | Connected-server check: exactly the manifest's servers connected; a new one goes on the shared deny list | Exit 6; the record says `enforce`, the companion report names the check and its detail |
-| 12 | Outside | Append one session line; the runner then writes the TRACE record | Alarm line; job result unchanged |
+| 3 | Outside | Runtime identity: the fixed path's digest equals the head of a signed, append-only pin ledger and the binary satisfies the vendor's code requirement; the verdict binds the file's identity, re-checked just before exec (§ Appendix B.2) | Refuse (5); one `_fleet-identity`-class alarm |
+| 4 | Outside | Flag gate: pass through only `-p`, `--print`, `--verbose`, `--max-turns`, `--disallowedTools`, `--output-format` and the prompt, so a job script can't widen the tool set | Refuse (5) |
+| 5 | Outside | Integrity check: hooks, settings, policy and the pinned fleet public key match a signed baseline | Refuse (5) |
+| 6 | Outside | Preflight: a single-turn call with no tools; a due token refresh is saved here | Refuse (5) |
+| 7 | Outside | Token guard: defer if less than the job's timeout plus 5 minutes remains | Refuse (5) |
+| 8 | Outside | Plant the canary file in the signing-key directory | Refuse (5) |
+| 9 | Outside | Plant a listening unix socket the sandbox must not be able to reach; it is torn down before the agent starts | Refuse (5) |
+| 10 | Inside | Startup canary, six checks, the socket among them | Refuse (5) |
+| 11 | Inside | The agent runs with the rendered flags | The agent's own exit code |
+| 12 | Outside | Tamper check: no evidence path became a symlink | Refuse (5); the record says `enforce`, the companion report says `tampered` |
+| 13 | Outside | Connected-server check: exactly the manifest's servers connected; a new one goes on the shared deny list | Exit 6; the record says `enforce`, the companion report names the check and its detail |
+| 14 | Outside | Append one session line, which names the build the identity check verified; the runner then writes the TRACE record | Alarm line; job result unchanged |
 
-A run refused at steps 1 to 8 never started the agent and leaves no TRACE record. The wrapper's own
-evidence sits outside the sandbox-writable set, so nothing inside can forge it.
+A run refused at steps 1 to 10 never started the agent and leaves no TRACE record, only a signed
+refusal report. The wrapper's own evidence sits outside the sandbox-writable set, so nothing
+inside can forge it.
 
 ### The TRACE record
 
@@ -672,6 +679,25 @@ its own, so the launcher had nothing to do. And a TRACE record that hashes the c
 string with the profile hash names the rule I meant, without proving the binary met it on that
 run.
 
+**Update, v0.1.5.** The review's objection stood: a check that runs once, at promotion, says
+nothing about the file that execs a day later, and the fixed path and its ledger were writable by
+any process running as me. So the check now runs at every launch, both halves: the fixed path's
+digest must equal the head of the pin ledger, and the binary must satisfy the vendor's code
+requirement. The ledger became append-only and signed: each row carries a sequence number, a
+prefix hash over every earlier byte and an Ed25519 signature by the fleet key whose public half is
+pinned in the repository and covered by the signed integrity baseline; a witness file outside the
+ledger records the head, so a ledger cut back to an earlier, validly signed prefix is caught.
+Promotion appends a signed row and refuses a version older than the head unless an operator asks
+for a rollback with a reason, on a terminal. User-level immutable and append-only flags protect the
+binary and the ledger from accidents and naive writers; detection remains the launch check's job,
+and the remaining gap, a same-user writer who clears the flags first, is recorded and waits for a
+separate fleet user. The check costs about a quarter of a second per launch. The session line then
+carries `runtime_identity`: the version, digest, ledger sequence and head the passing check saw,
+and the verdict binds the file's device, inode, size and timestamps, re-checked immediately before
+exec, so the build that starts is the build that was checked. A failed check refuses the launch
+with its own alarm and a signed refusal report. The first live promotion through the signed path
+took one second and no permission prompt.
+
 **Recommendation.** An alternative to the image digest for workstation runtimes, in which the
 manifest binds the runtime by its signing rule and an allowed version range:
 
@@ -680,18 +706,20 @@ manifest binds the runtime by its signing rule and an allowed version range:
   "binding": "code-requirement",
   "requirement": "identifier \"com.anthropic.claude-code\" and anchor apple generic and certificate leaf[subject.OU] = \"<team id>\"",
   "allowed_versions": ">=2.1.278 <2.2",
-  "verified": "at-promotion"
+  "verified": "per-run"
 }
 ```
 
 `verified` says when the enforcer checked the binary against the rule: `at-promotion`, as my
-design does, or `per-run`, which the profile should recommend. TRACE already lets a producer
+first design did, or `per-run`, which my build now does and the profile should recommend. TRACE already lets a producer
 define its own preimage, so the ask there is small: standardize the no-image variant in the
 sandbox-runtime note, so two producers don't each invent one. A producer with no image digest
 substitutes the requirement: `runtime.measurement` = sha256(requirement ‖ "\n" ‖ policy bundle
 hash), which is my formula. The note should say plainly that this commitment names a rule. `verified: per-run` remains
 a producer assertion unless it is accompanied by trustworthy evidence of the check and a
-binding to the executable actually launched. Record both the stable publisher/version policy
+binding to the executable actually launched; in my build that evidence is the session line's
+`runtime_identity` and the identity binding re-checked before exec, and carrying it into the
+companion report's probes is the open follow-up. Record both the stable publisher/version policy
 and the observed binary digest and version; preserve the latter in `build_provenance.digest`.
 Protect the promotion destination, prevent unauthorized rollback, and address replacement
 between verification and launch. A vendor signature alone does not identify the approved build.
@@ -980,7 +1008,7 @@ thing the manifest names, such as a service account several agents share.
 | # | Recommendation | Spec area | Effort · impact (my estimate) | Status |
 |---|---|---|---|---|
 | 1 | A filesystem scope, and an `extensions` slot to carry it | Agent Manifest §3.1, §3.4.1 | Medium · high | Proposed |
-| 2 | Runtime identity by code requirement and version range | Agent Manifest §3.2.8; TRACE software-only measurement, sandbox-runtime note | Medium · high | Proposed |
+| 2 | Runtime identity by code requirement and version range | Agent Manifest §3.2.8; TRACE software-only measurement, sandbox-runtime note | Medium · high | Built in my runtime (per-run, signed pin ledger, v0.1.5); the spec ask stands |
 | 3 | A workstation enforcement profile with an actor named per control; separate enforcement mode, probe outcomes and evidence integrity | Agent Manifest §3.2.3.1, §6.2.1; TRACE §4.3 | High · high | Proposed |
 | 4 | Authenticate existing server identities through hosted proxies; refuse unapproved servers before use | Agent Manifest §3.2.3, §3.2.3.1 | Medium · medium | Proposed |
 | 5 | Declared credential handling | Agent Manifest (new field); TRACE sandbox-runtime note | Low · medium | Proposed |
