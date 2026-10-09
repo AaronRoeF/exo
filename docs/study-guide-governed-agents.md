@@ -211,7 +211,8 @@ settings, skills or memory. Built-in tools the manifest doesn't name are removed
 session, and so is every mail write tool: send, reply, draft, trash, label. Tool servers the job
 doesn't use are denied by name. A hosted connector (a tool server Anthropic runs, switched on
 from my Claude account) that appears without a manifest change is flagged on its first run and
-denied from the next run on. The one hook left records each tool call into a hash-chained log.
+denied from the next run on. The one hook left hands each tool call to an audit door outside the
+sandbox before the call runs, and a call the door can't record doesn't run.
 
 **Rattling the locks: the startup canary.** Before the agent starts, a self-test inside the
 sandbox makes five checks: the proxy is set, a write to my home directory fails, an off-list host
@@ -442,7 +443,8 @@ The companion flag list, one argument per line in the real file:
 --model <model>  --effort <effort>  --add-dir <each write_allow entry>
 ```
 
-The agent settings carry the tool-call recorder hook, matched to the manifest's tools, and
+The agent settings carry the audit door's client as a PreToolUse hook, matched to the manifest's
+tools, with a 30-second timeout, and
 `deniedMcpServers` listing every server the job doesn't use.
 
 ### The run sequence
@@ -467,12 +469,12 @@ bind is attempted.
 | 6 | Outside | Preflight: a single-turn call with no tools; a due token refresh is saved here | Refuse (5) |
 | 7 | Outside | Token guard: defer if less than the job's timeout plus 5 minutes remains | Refuse (5) |
 | 8 | Outside | Plant the canary file in the signing-key directory | Refuse (5) |
-| 9 | Outside | Plant a listening unix socket the sandbox must not be able to reach; it is torn down before the agent starts | Refuse (5) |
-| 10 | Inside | Startup canary, six checks, the socket among them | Refuse (5) |
+| 9 | Outside | Open this session at the audit door over a control socket no profile lists; plant a listening unix socket the sandbox must not be able to reach, torn down before the agent starts | Refuse (5) |
+| 10 | Inside | Startup canary, six checks, the socket among them; the audit door's record socket must answer from inside | Refuse (5) |
 | 11 | Inside | The agent runs with the rendered flags | The agent's own exit code |
 | 12 | Outside | Tamper check: no evidence path became a symlink | Refuse (5); the record says `enforce`, the companion report says `tampered` |
 | 13 | Outside | Connected-server check: exactly the manifest's servers connected; a new one goes on the shared deny list | Exit 6; the record says `enforce`, the companion report names the check and its detail |
-| 14 | Outside | Append one session line, which names the build the identity check verified; the runner then writes the TRACE record | Alarm line; job result unchanged |
+| 14 | Outside | Seal the session at the audit door, then append one session line carrying the seal's answer and naming the build the identity check verified; the runner then writes the TRACE record | A seal that isn't clean (unanswered, abandoned, or holding a refused event): exit 6 and the output is held. A failed line write: alarm line |
 
 A run refused at steps 1 to 10 never started the agent and leaves no TRACE record, only a signed
 refusal report. The wrapper's own evidence sits outside the sandbox-writable set, so nothing
@@ -491,8 +493,8 @@ inside can forge it.
   "policy": {"bundle_hash": "sha256:<profile hash>", "enforcement_mode": "enforce",
              "version": "<first 12 of manifest sha256>", "policy_uri": "file://<sandbox profile>"},
   "data_class": "confidential",
-  "tool_transcript": {"hash": "sha256:<hash of this session's tool-call log>", "call_count": 7,
-                      "transcript_uri": "file://<log file>"},
+  "tool_transcript": {"hash": "sha256:<hash of this session's audit chain>", "call_count": 7,
+                      "transcript_uri": "file://<the audit door's chain file>"},
   "build_provenance": {"slsa_level": 0, "digest": "sha256:<fixed-path binary>",
                        "builder": "urn:example:fleet:anthropic-signed"},
   "appraisal": {"status": "none", "verifier": "urn:example:fleet:runner",
@@ -514,9 +516,27 @@ inside can forge it.
 A failed record write adds an alarm and never changes the job's result in this implementation.
 That is an availability choice, not evidence-gated completion. If a workflow requires evidence
 before accepting or publishing output, quarantine the staged output until its record is durable.
-A hook log in the agent-writable run directory is not an independent observer: a later signature
-does not repair omitted or rewritten entries. Hash chaining also needs a trusted external
-checkpoint to detect a removed suffix or an entirely missing log.
+A hook log in the agent-writable run directory would not be an independent observer: a later
+signature does not repair omitted or rewritten entries, and hash chaining needs a trusted external
+checkpoint to detect a removed suffix or an entirely missing log. Since v0.1.6 the log isn't in the
+sandbox at all. An audit door, a small resident service outside every sandbox, writes one hash
+chain per session into a directory no profile can read or write, and flushes each entry to disk
+before it answers. The agent's hook reaches it through the one record socket the profile allows,
+and exits 0 only once the door has acknowledged the call, so a call the door couldn't record
+doesn't run. The wrapper opens and seals each session over a second socket no profile lists, and
+writes the seal's answer (entries, calls, refusals and the chain's head) into its own session line.
+That line is the external checkpoint: a different writer, in a file no sandbox can write. The
+record binds a chain only when it verifies entry by entry and against that checkpoint, and the
+companion report, now v2, names the door as the observer. A chain that fails is `tampered`, a
+session with no seal is `absent`, and either way the run's output is held. A door that is down
+refuses the run.
+
+What the audit door doesn't do. Completeness still rests on the harness calling its hooks: the
+client gives up and blocks after 10 seconds, but a hook hung past the harness's own 30-second
+timeout lets the call through, which I measured. A process inside the session's own tree could
+send extra, well-formed events, so that failure over-reports rather than hides. Another process
+running as me on the same host could reach the control socket. And an entry records a call the
+harness was about to make, not its result. Each flush costs about 4 ms per call.
 
 ### Annoyances it removed along the way
 

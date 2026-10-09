@@ -4,6 +4,10 @@ Notable public releases of **exo**. Date-stamped; curated (this is the forker-fa
 
 ---
 
+## [2026-10-09] — v0.1.6 — Study guide: the audit door (ADR-0076) — each agent tool call is recorded outside the sandbox before it runs; what it does not guarantee
+- Source commit: 57305a0
+
+
 ## [2026-10-06] — v0.1.5 — The governed-agents study guide matches the build again: the fleet's binary is verified at every launch, both halves, against a signed, append-only pin ledger (ADR-0074); the run sequence is fourteen steps with the socket canary and the identity check in it; a refusal names its cause, the tool's last line, then the path.
 - Source commit: 30a9411
 
