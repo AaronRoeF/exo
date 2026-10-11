@@ -73,7 +73,7 @@ Setup:
      "mcpServers": {
        "exo": {
          "command": "npx",
-         "args": ["-y", "@exo/mcp-server"]
+         "args": ["-y", "exo-mcp"]
        }
      }
    }

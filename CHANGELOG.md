@@ -4,6 +4,10 @@ Notable public releases of **exo**. Date-stamped; curated (this is the forker-fa
 
 ---
 
+## [2026-10-10] — v0.1.7 — exo-mcp: install docs and package ship through the release manifest; the package builds before npm publish
+- Source commit: df0dba3
+
+
 ## [2026-10-09] — v0.1.6 — Study guide: the audit door (ADR-0076) — each agent tool call is recorded outside the sandbox before it runs; what it does not guarantee
 - Source commit: 57305a0
 
